@@ -62,7 +62,7 @@ src/inspetor.js          mostra a estrutura do que está selecionado e edita os 
 src/tela.js              a tela de edição: selecionar, mover, aninhar, redimensionar, ligar, criar
 src/arquivo.js           .json, SVG exportado (com o documento dentro), cópia no navegador
 src/main.js              estado, histórico, barras, paleta e teclado
-exemplos/artigo.json     Tabela 1 e Figuras 1, 2 e 4 a 8, para ver e para testar
+exemplos/artigo.json     Tabela 1 e Figuras 1 a 11, para ver e para testar
 docs/                    notação, formato, decisões
 tests/                   unidades (node:test) e página (Playwright)
 ferramentas/servidor.mjs servidor local (módulos ES não abrem de file://)
@@ -111,7 +111,8 @@ nem Atalho); salvar o documento; exportar SVG. Plano aprovado pelo André em
 8. ~~Exportar SVG com o documento embutido (e reabrir o SVG).~~ Os passos 2 a
    8 esperam a experiência do André no uso.
 9. Redesenhar a Tabela 1 e as Figuras 1 a 11 no editor; o que não couber vira
-   pergunta.
+   pergunta. As que faltavam (3, 9, 10, 11) já estão em `exemplos/artigo.json`,
+   escritas à mão; falta o André redesenhar no editor e dizer o que atrapalha.
 
 Fora da v0: pontos de passagem nas rotas (só com o André; se uma rota ficar
 ruim, melhora-se o cálculo), encostar como relação, grade, toque.

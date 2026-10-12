@@ -50,6 +50,7 @@ const esperado = {
   'tabela-1': { estatico: 6, virtual: 6, mecanico: 6, anotacao: 7 },
   'figura-4': { virtual: 2, estatico: 2, decisao: 1, juncao: 2, fluxos: 8 },
   'figura-2a': { virtual: 2, estatico: 1, mecanico: 2, decisao: 1, juncao: 2, fluxos: 10 },
+  'figura-9': { virtual: 3, estatico: 6, decisao: 2, juncao: 4, fluxos: 19 },
 };
 
 for (const id of ids) {
@@ -255,7 +256,7 @@ await confere('arquivo: exportar SVG com o documento dentro, e reabri-lo', async
   if ((await guardado()).diagramas.length !== 1) throw new Error('Novo não limpou');
   await ed.setInputFiles('#arquivo', caminho);
   await ed.waitForFunction((id) => document.querySelector('svg.diagrama')?.dataset.diagrama === id, id);
-  if ((await guardado()).diagramas.length < 10) throw new Error('não voltou o documento inteiro');
+  if ((await guardado()).diagramas.length < 16) throw new Error('não voltou o documento inteiro');
 });
 
 await confere('arquivo: salvar .json, e o trabalho fica no navegador', async () => {

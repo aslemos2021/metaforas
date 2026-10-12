@@ -67,3 +67,12 @@ do fluxo passa a ser calculada (`corDoFluxo`); saem do documento `traco`,
 `seta` e o `registro` dos fluxos com destinatário. A migração 1 → 2 faz isso.
 O desenho omite a seta que chega a uma junção, porque o ponto já marca a
 chegada.
+
+**2026-10-12 · O editor edita; Figuras 3 e 9 a 11 nos exemplos** (Claude, no
+plano aprovado pelo André). Passos 1 a 8 da v0: edição sem tela
+(`src/edicao.js`), tela, paleta, inspetor que edita, vários diagramas, `.json`,
+cópia no navegador, SVG com o documento dentro. As Figuras 3 (três quadros) e
+9 a 11 foram escritas à mão em `exemplos/artigo.json`, sem as reticências (9),
+sem a pequena elipse com `...` (9) e sem o Atalho (10 e 11); o que estava dentro
+do Atalho subiu para a máquina que o continha. Os valores encostados (`x!`,
+`x`, `x-1`, o código em 9 e 11) continuam só posição.

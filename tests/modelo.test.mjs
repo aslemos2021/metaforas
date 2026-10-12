@@ -41,6 +41,12 @@ test('o documento de exemplo abre sem erros nem avisos', () => {
   assert.ok(documento.diagramas.some((d) => d.id === 'figura-4'));
 });
 
+test('o exemplo tem a Tabela 1 e as Figuras 1 a 11', () => {
+  const { documento } = abrir(exemplo);
+  const ids = new Set(documento.diagramas.map((d) => d.id.replace(/[a-c]$/, '')));
+  for (const n of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]) assert.ok(ids.has(`figura-${n}`), `falta a Figura ${n}`);
+});
+
 test('a Tabela 1 tem as nove combinações de interface e objeto', () => {
   const { documento } = abrir(exemplo);
   const t = documento.diagramas.find((d) => d.id === 'tabela-1');
