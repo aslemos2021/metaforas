@@ -11,7 +11,7 @@ O material das conversas anteriores entre André e Claude não entra aqui.
 **2026-10-11 · Repositório, licença, publicação** (André). Repositório público
 `metaforas` no GitHub, licença CC0 1.0 (domínio público), página no GitHub Pages.
 Os textos de referência (o manuscrito de *Metáforas*, o *Ensaio.pptx*) ficam
-fora do repositório, na Library do Projeto.
+fora do repositório.
 
 **2026-10-11 · Onde se trabalha** (André). Num Projeto do Claude Code na nuvem:
 cada tarefa é uma conversa que clona este repositório e lê o `CLAUDE.md`.
@@ -76,3 +76,8 @@ cópia no navegador, SVG com o documento dentro. As Figuras 3 (três quadros) e
 sem a pequena elipse com `...` (9) e sem o Atalho (10 e 11); o que estava dentro
 do Atalho subiu para a máquina que o continha. Os valores encostados (`x!`,
 `x`, `x-1`, o código em 9 e 11) continuam só posição.
+
+**2026-10-12 · Sessões em vez de Projeto** (André). Os Projetos do Claude Code
+ainda não estão liberados na conta. Por enquanto, cada tarefa é uma sessão
+comum na nuvem com este repositório; o modo de trabalhar com o André foi para
+o `CLAUDE.md`, que toda sessão lê.
