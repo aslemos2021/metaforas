@@ -107,32 +107,56 @@ Decisão do André, em 11 de outubro de 2026:
   EnumeraA, event handler, o trapézio, o octógono roxo, formas mistas como o
   retângulo arredondado vermelho ou preto) são sugestões e ficam de fora.
 
+## Respostas de 12 de outubro de 2026
+
+O André respondeu às seis perguntas que saíram da leitura do *Ensaio.pptx*.
+O editor ainda faz o que fazia antes (entre parênteses, em cada uma); as
+mudanças entram no passo 0 do plano da v0.
+
+1. **Espessura do traço.** Não tem significado específico. (O editor aceita
+   `"traco": "fino"`.)
+2. **Cor do fluxo.** A cor concorda com o uso, e é o **destino** que decide:
+   - a conexão entra pela **esquerda** do objeto de destino: a entrada
+     permanece entrada, **vermelho**;
+   - entra **por cima**: a entrada se converte em código, **azul**;
+   - entra num **componente preto sem nada dentro**: é incorporada a ele,
+     **preto**.
+
+   (O editor guarda um `registro` opcional no fluxo; sem ele, azul pelo topo
+   de virtual, preto no resto.)
+3. **Pontas de seta.** A falta de seta entre a decisão e `n`/`s` foi só uma
+   opção ao escrever o artigo; a seta pode ser introduzida. (O editor aceita
+   `"seta": false`.)
+4. **Encostar.** Um valor encostado num lado de outro objeto, sem linha, vale
+   como se houvesse ali uma flecha: vermelha se o contato é lateral, azul se
+   é com o topo. A representação sem flecha pode ficar para depois, a não ser
+   que seja trivial. (Por enquanto, é só posição.)
+5. **Saída pelo topo.** Sim: o fluxo que sai pelo topo de uma máquina é o
+   código da máquina, tomado como valor (Figura 8).
+6. **Operadores.** `-1` e `*` são mecânicos, retângulos de cantos retos: a
+   flecha de entrada quer dizer que o que for recebido será incorporado a eles
+   (e pode ser jogado fora ou aproveitado), que eles estão sendo acionados e
+   vão produzir o comportamento esperado na sua saída.
+
 ## Perguntas em aberto
 
-Saíram da leitura do *Ensaio.pptx*. Enquanto não houver resposta, o editor faz o
-que está entre parênteses, de um jeito fácil de mudar depois.
+Saíram das respostas acima, aplicadas às figuras.
 
-1. **Espessura do traço.** Nos desenhos, as formas têm 3 pt, mas os `n` e `s`
-   dentro de Não-autoaceitadorRE? têm 1 pt; o `s` que sai na Figura 7 tem 3 pt. O
-   primeiro slide do Ensaio mostra cada forma em duas espessuras. A espessura quer
-   dizer alguma coisa (por exemplo, constante do algoritmo × valor em cena)?
-   (O editor aceita `"traco": "fino"` e não diz o que significa.)
-2. **Cor do fluxo.** As linhas são azuis quando entram ou saem pelo topo de uma
-   máquina virtual, vermelhas quando levam código como entrada (Figuras 4, 5 e 8)
-   e pretas no resto, inclusive quando `x-1` entra pela esquerda do Fatorial
-   interno. A cor diz o registro do que passa pela linha? (O editor guarda um
-   `registro` opcional no fluxo; sem ele, azul pelo topo de virtual, preto no resto.)
-3. **Pontas de seta.** As linhas que vão da decisão às constantes `n` e `s`, e daí
-   à junção, não têm seta; as outras têm. Isso tem sentido, ou é estilo?
-   (O editor aceita `"seta": false`.)
-4. **Encostar.** Às vezes um valor aparece encostado num lado da máquina, sem
-   linha: `ax?` na Figura 6, `s` na Figura 7, `x-1` no Fatorial. É uma relação (o
-   valor está na porta) que o editor deveria guardar, e que acompanharia a
-   máquina quando ela se move? (Por enquanto, é só posição.)
-5. **Saída pelo topo.** Na Figura 8, a linha azul sai do topo de
-   Não-autoaceitadorRE? e chega à elipse com o seu código. Sair pelo topo quer
-   dizer "o código da máquina, tomado como valor"? Se for, a regra do lado de
-   entrada ganha uma metade. (O inspetor só diz "sai por cima".)
-6. **Operadores.** No PowerPoint, `-1` e `*` do Fatorial são retângulos de cantos
-   levemente arredondados; no artigo parecem retos. O editor os desenha como
-   mecânicos (retos). Está certo?
+1. **Cor do fluxo que chega a uma junção.** A junção é preta e sem nada dentro,
+   mas não incorpora: só divide. Nas Figuras 4, 5 e 8, a entrada chega a uma
+   junção e se divide em duas, uma que entra por cima (azul) e outra pela
+   esquerda (vermelha). O trecho antes da junção tem que cor? (Proposta:
+   a junção é transparente; vale a cor do que sai dela, e preto se os ramos
+   discordarem.)
+2. **Cor do fluxo que sai da máquina.** O resultado que sai pela borda direita
+   da máquina (Fatorial, Não-autoaceitadorRE?) não entra em nenhum objeto.
+   Que cor? (Proposta: preto.)
+3. **A regra vale para qualquer destino?** Na Figura 2, a saída de `-1` entra
+   pela esquerda do Fatorial interno (primeiro quadro) e pela esquerda da
+   elipse `x-1` (segundo quadro); pela regra, as duas seriam vermelhas, mas no
+   artigo não são. É isso? E o que
+   chega a uma decisão (preta, sem nada dentro) é preto?
+4. **Figuras 9 a 11 na v0.** O critério da v0 pede as Figuras 1 a 11 dentro da
+   gramática confirmada, mas a 9 tem reticências e a 10 e a 11, o Atalho, que
+   estão fora. Redesenhamos sem eles (deixando o lugar vazio), ou o Atalho e as
+   reticências entram na v0?

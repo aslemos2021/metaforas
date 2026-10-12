@@ -44,3 +44,12 @@ preservação de campos desconhecidos (`formato.md`).
 Figuras 1, 2 (três quadros) e 4 a 8, convertidas do *Ensaio.pptx* por um script
 de rascunho e ajustadas à mão. Servem de exemplo e de teste do desenho. As
 Figuras 3 e 9 a 11 ficam para a v0 (a 9 tem reticências; a 10 e a 11, o Atalho).
+
+**2026-10-12 · Respostas sobre a notação** (André). A espessura do traço não
+tem significado. A cor do fluxo é decidida pelo destino: entra pela esquerda,
+vermelho (a entrada permanece entrada); por cima, azul (vira código); num
+componente preto sem nada dentro, preto (é incorporada). A seta pode ir em
+todos os fluxos. Um valor encostado vale por uma flecha (lateral, vermelha;
+no topo, azul); fica para depois. Sair pelo topo é o código da máquina tomado
+como valor. `-1` e `*` são mecânicos, de cantos retos. Detalhes e as perguntas
+que daí saíram em `notacao.md`.
