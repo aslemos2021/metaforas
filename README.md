@@ -11,9 +11,17 @@ de fora a interface do de dentro. Os diagramas não são especificações nem
 programas: são, nas palavras do artigo, "como a projeção em três dimensões de um
 objeto de quatro dimensões ou mais".
 
-**Estado:** esqueleto. A página mostra figuras do artigo desenhadas a partir do
-formato do documento e, ao clicar, a estrutura que o documento guarda sobre cada
-elemento. Ainda não edita; a primeira versão do editor é o próximo passo.
+**Estado:** a caminho da v0. O editor cria, move, aninha, redimensiona, liga,
+renomeia e apaga; desfaz e refaz; guarda o trabalho no navegador; abre e salva o
+documento (`.json`) e exporta cada diagrama em SVG, com o documento dentro (o SVG
+reabre no editor). Ao clicar num elemento, o inspetor mostra a estrutura que o
+documento guarda sobre ele. Falta redesenhar no editor as figuras do artigo.
+
+Como usar: escolha um tipo na paleta e clique no desenho para criar; soltar um
+elemento dentro de um registro o põe dentro; para ligar, arraste de um dos
+pontos que aparecem nos lados de um elemento até outro. Teclado: `Delete` apaga,
+`Ctrl+Z` desfaz, `Ctrl+Shift+Z` refaz, setas movem (com `Shift`, de 10 em 10),
+`Esc` limpa a seleção, clique duplo edita o nome.
 
 - A notação: [docs/notacao.md](docs/notacao.md)
 - O formato do documento: [docs/formato.md](docs/formato.md)

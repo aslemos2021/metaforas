@@ -58,8 +58,10 @@ src/edicao.js            operações de edição (documento -> documento novo) e
 src/notacao.js           cores, traços, fontes e medidas da notação, num lugar só
 src/geometria.js         portas e rotas ortogonais dos fluxos; funções puras
 src/desenho.js           diagrama -> <svg>; sem estado
-src/inspetor.js          clique num elemento mostra a estrutura que o documento guarda
-src/main.js              liga tudo na página
+src/inspetor.js          mostra a estrutura do que está selecionado e edita os nomes
+src/tela.js              a tela de edição: selecionar, mover, aninhar, redimensionar, ligar, criar
+src/arquivo.js           .json, SVG exportado (com o documento dentro), cópia no navegador
+src/main.js              estado, histórico, barras, paleta e teclado
 exemplos/artigo.json     Tabela 1 e Figuras 1, 2 e 4 a 8, para ver e para testar
 docs/                    notação, formato, decisões
 tests/                   unidades (node:test) e página (Playwright)
@@ -84,8 +86,9 @@ ferramentas/servidor.mjs servidor local (módulos ES não abrem de file://)
 
 ## Estado
 
-O esqueleto mostra os exemplos e um inspetor, mas ainda não edita. Formato na
-versão 2, com a cor dos fluxos calculada pelo destino.
+O editor edita (passos 0 a 8 abaixo). Formato na versão 2, com a cor dos
+fluxos calculada pelo destino. Ao abrir, a página mostra o que está guardado no
+navegador; na primeira vez, as figuras do artigo.
 
 **Em curso: a v0.** Critério de aceite (André): redesenhar no editor a Tabela 1
 e as Figuras 1 a 11, dentro da gramática confirmada (as 9 a 11 sem reticências
@@ -96,16 +99,17 @@ nem Atalho); salvar o documento; exportar SVG. Plano aprovado pelo André em
 1. ~~Núcleo de edição sem tela (`src/edicao.js`): criar, mover, redimensionar,
    aninhar, desaninhar, ligar, renomear, apagar; histórico para desfazer e
    refazer. Funções puras, que devolvem documento novo e válido.~~
-2. Selecionar, mover (com os objetos dentro) e redimensionar com o mouse;
-   apagar; desfazer e refazer.
-3. Paleta dos seis tipos; soltar dentro de um registro aninha, arrastar para
-   fora desaninha.
-4. Fluxos: arrastar de um lado a outro; `s`/`n` na saída da decisão.
-5. O inspetor edita: legenda, rótulo, texto, lados, cor do fluxo sem
-   destinatário.
-6. Vários diagramas: criar, renomear, duplicar, reordenar, apagar.
-7. Abrir e salvar `.json`; guardar no navegador.
-8. Exportar SVG com o documento embutido (e reabrir o SVG).
+2. ~~Selecionar, mover (com os objetos dentro) e redimensionar com o mouse;
+   apagar; desfazer e refazer.~~
+3. ~~Paleta dos seis tipos; soltar dentro de um registro aninha, arrastar para
+   fora desaninha.~~
+4. ~~Fluxos: arrastar de um lado a outro; `s`/`n` na saída da decisão.~~
+5. ~~O inspetor edita: legenda, rótulo, texto, lados, cor do fluxo sem
+   destinatário.~~
+6. ~~Vários diagramas: criar, renomear, duplicar, reordenar, apagar.~~
+7. ~~Abrir e salvar `.json`; guardar no navegador.~~
+8. ~~Exportar SVG com o documento embutido (e reabrir o SVG).~~ Os passos 2 a
+   8 esperam a experiência do André no uso.
 9. Redesenhar a Tabela 1 e as Figuras 1 a 11 no editor; o que não couber vira
    pergunta.
 
