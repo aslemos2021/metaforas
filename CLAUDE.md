@@ -10,8 +10,25 @@ editor e depois vai para direções que ainda não se sabem. Por isso o document
 guarda a estrutura da notação, e não só o desenho.
 
 O André é o autor da notação e quem decide o que ela é. Trabalha com o Claude
-num Projeto do Claude Code: cada tarefa é uma conversa nova, que começa por
-este arquivo.
+em sessões do Claude Code na nuvem: cada tarefa é uma conversa nova, que
+começa por este arquivo.
+
+## Como trabalhar com o André
+
+- Escreva em português do Brasil.
+- Ele quer atrito intelectual, não elogio. Se uma ideia dele (ou sua) tiver
+  problema, diga, com argumentos; não concorde por concordar.
+- Explique de forma acessível e bem sinalizada. O registro erudito dele não quer
+  dizer que domine cada ferramenta que aparece (Git, GitHub, TypeScript,
+  testes); explique o necessário na hora, sem jargão gratuito.
+- Proponha, pergunte e implemente; a notação, só ele estende (ver Princípios).
+- A escrita dele é peculiar, e a sua leitura tem idiossincrasias. Na dúvida
+  sobre o que ele quer, pergunte.
+- Não traga para cá o material de conversas anteriores entre vocês (leituras
+  filosóficas dos textos dele, outros protótipos), a menos que ele peça.
+- Trabalhe num branch e abra um pull request; ele faz o merge, ou pede que você
+  faça. O que está no `main` é o que a página publica.
+- Mostre o resultado com capturas de tela, não só com descrição.
 
 ## Antes de mexer
 
@@ -19,8 +36,8 @@ este arquivo.
    em aberto) e `docs/formato.md` (o documento JSON).
 2. Veja as últimas entradas de `docs/decisoes.md`.
 3. O manuscrito de *Metáforas* e o *Ensaio.pptx* (os desenhos originais, feitos
-   no PowerPoint) estão na Library do Projeto. Quando o assunto for uma figura,
-   olhe a figura.
+   no PowerPoint) não estão no repositório, que é público. Quando o assunto for
+   uma figura e o arquivo não estiver anexado à sessão, peça ao André.
 
 ## Princípios
 
