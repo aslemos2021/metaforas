@@ -1,262 +1,412 @@
 {
- "formato": "metaforas",
- "versao": 1,
- "titulo": "Figuras de Metáforas (Tabela 1, Figuras 1, 2 e 4 a 8)",
- "descricao": "Convertidas do Ensaio.pptx por um script de rascunho e ajustadas à mão. Servem de exemplo e de teste.",
- "diagramas": [
-  {
-   "id": "tabela-1",
-   "titulo": "Tabela 1: Objetos e interfaces",
-   "elementos": [
-    {"id": "cab", "tipo": "anotacao", "x": 20, "y": 20, "w": 150, "h": 40, "texto": "Interface \\ Objeto"},
-    {"id": "col-estatico", "tipo": "anotacao", "x": 190, "y": 20, "w": 150, "h": 40, "texto": "Estático"},
-    {"id": "col-virtual", "tipo": "anotacao", "x": 360, "y": 20, "w": 150, "h": 40, "texto": "Virtual"},
-    {"id": "col-mecanico", "tipo": "anotacao", "x": 530, "y": 20, "w": 150, "h": 40, "texto": "Mecânico"},
-    {"id": "lin-estatico", "tipo": "anotacao", "x": 20, "y": 125, "w": 150, "h": 40, "texto": "Estática"},
-    {"id": "ee-i", "tipo": "estatico", "x": 190, "y": 70, "w": 150, "h": 150},
-    {"id": "ee-o", "tipo": "estatico", "pai": "ee-i", "x": 20, "y": 20, "w": 110, "h": 110},
-    {"id": "ev-i", "tipo": "estatico", "x": 360, "y": 70, "w": 150, "h": 150},
-    {"id": "ev-o", "tipo": "virtual", "pai": "ev-i", "x": 27, "y": 27, "w": 96, "h": 96},
-    {"id": "em-i", "tipo": "estatico", "x": 530, "y": 70, "w": 150, "h": 150},
-    {"id": "em-o", "tipo": "mecanico", "pai": "em-i", "x": 27, "y": 27, "w": 96, "h": 96},
-    {"id": "lin-virtual", "tipo": "anotacao", "x": 20, "y": 295, "w": 150, "h": 40, "texto": "Virtual"},
-    {"id": "ve-i", "tipo": "virtual", "x": 190, "y": 240, "w": 150, "h": 150},
-    {"id": "ve-o", "tipo": "estatico", "pai": "ve-i", "x": 20, "y": 20, "w": 110, "h": 110},
-    {"id": "vv-i", "tipo": "virtual", "x": 360, "y": 240, "w": 150, "h": 150},
-    {"id": "vv-o", "tipo": "virtual", "pai": "vv-i", "x": 20, "y": 20, "w": 110, "h": 110},
-    {"id": "vm-i", "tipo": "virtual", "x": 530, "y": 240, "w": 150, "h": 150},
-    {"id": "vm-o", "tipo": "mecanico", "pai": "vm-i", "x": 20, "y": 20, "w": 110, "h": 110},
-    {"id": "lin-mecanico", "tipo": "anotacao", "x": 20, "y": 465, "w": 150, "h": 40, "texto": "Mecânica"},
-    {"id": "me-i", "tipo": "mecanico", "x": 190, "y": 410, "w": 150, "h": 150},
-    {"id": "me-o", "tipo": "estatico", "pai": "me-i", "x": 20, "y": 20, "w": 110, "h": 110},
-    {"id": "mv-i", "tipo": "mecanico", "x": 360, "y": 410, "w": 150, "h": 150},
-    {"id": "mv-o", "tipo": "virtual", "pai": "mv-i", "x": 20, "y": 20, "w": 110, "h": 110},
-    {"id": "mm-i", "tipo": "mecanico", "x": 530, "y": 410, "w": 150, "h": 150},
-    {"id": "mm-o", "tipo": "mecanico", "pai": "mm-i", "x": 20, "y": 20, "w": 110, "h": 110}
-   ],
-   "fluxos": []
-  },
-  {
-   "id": "figura-1",
-   "titulo": "Figura 1: Algo pode acontecer quando um código (F) é posto a funcionar em uma arquitetura (M). Sem as setas de transformação, que ficam para depois.",
-   "elementos": [
-    {"id": "m1", "tipo": "mecanico", "x": 625, "y": 20, "w": 196, "h": 182, "legenda": "M"},
-    {"id": "e1", "tipo": "estatico", "x": 20, "y": 32, "w": 155, "h": 158, "rotulo": "F"},
-    {"id": "m2", "tipo": "mecanico", "x": 216, "y": 20, "w": 196, "h": 182, "legenda": "M"},
-    {"id": "e2", "tipo": "estatico", "pai": "m1", "x": 20, "y": 12, "w": 155, "h": 158, "rotulo": "F"},
-    {"id": "e3", "tipo": "estatico", "x": 20, "y": 349, "w": 155, "h": 158, "rotulo": "F"},
-    {"id": "m3", "tipo": "mecanico", "x": 216, "y": 338, "w": 196, "h": 182, "legenda": "M"},
-    {"id": "v1", "tipo": "virtual", "x": 631, "y": 338, "w": 189, "h": 182, "legenda": "F"},
-    {"id": "v2", "tipo": "virtual", "pai": "m3", "x": 33, "y": 29, "w": 130, "h": 124}
-   ],
-   "fluxos": []
-  },
-  {
-   "id": "figura-2a",
-   "titulo": "Figura 2 (1/3): A entrada devém a máquina.",
-   "elementos": [
-    {"id": "e1", "tipo": "estatico", "x": 20, "y": 227, "w": 72, "h": 44, "rotulo": "x"},
-    {"id": "v1", "tipo": "virtual", "x": 92, "y": 20, "w": 708, "h": 377, "legenda": "Fatorial"},
-    {"id": "d1", "tipo": "decisao", "pai": "v1", "x": 36, "y": 193, "w": 72, "h": 72, "rotulo": "=1"},
-    {"id": "m1", "tipo": "mecanico", "pai": "v1", "x": 214, "y": 116, "w": 61, "h": 44, "rotulo": "-1"},
-    {"id": "v2", "tipo": "virtual", "pai": "v1", "x": 324, "y": 63, "w": 198, "h": 151},
-    {"id": "j1", "tipo": "juncao", "pai": "v1", "x": 152, "y": 133},
-    {"id": "m2", "tipo": "mecanico", "pai": "v1", "x": 560, "y": 245, "w": 40, "h": 42, "rotulo": "*"},
-    {"id": "j2", "tipo": "juncao", "pai": "v1", "x": 645, "y": 261}
-   ],
-   "fluxos": [
-    {"id": "f1", "de": {"elemento": "d1", "lado": "topo"}, "para": {"elemento": "j1", "lado": "esquerda"}, "rotulo": "n", "seta": false},
-    {"id": "f2", "de": {"elemento": "d1", "lado": "baixo"}, "para": {"elemento": "j2", "lado": "baixo"}, "rotulo": "s", "seta": false},
-    {"id": "f3", "de": {"elemento": "e1", "lado": "direita"}, "para": {"elemento": "d1", "lado": "esquerda"}},
-    {"id": "f4", "de": {"elemento": "m1", "lado": "direita"}, "para": {"elemento": "v2", "lado": "esquerda"}},
-    {"id": "f5", "de": {"elemento": "j1", "lado": "direita"}, "para": {"elemento": "m1", "lado": "esquerda"}},
-    {"id": "f6", "de": {"elemento": "j1", "lado": "baixo"}, "para": {"elemento": "m2", "lado": "esquerda"}},
-    {"id": "f7", "de": {"elemento": "v2", "lado": "direita"}, "para": {"elemento": "m2", "lado": "topo"}},
-    {"id": "f8", "de": {"elemento": "m2", "lado": "direita"}, "para": {"elemento": "j2", "lado": "esquerda"}},
-    {"id": "f9", "de": {"elemento": "j2", "lado": "direita"}, "para": {"elemento": "v1", "lado": "direita"}},
-    {"id": "f10", "de": {"elemento": "v1", "lado": "topo"}, "para": {"elemento": "v2", "lado": "topo"}}
-   ]
-  },
-  {
-   "id": "figura-2b",
-   "titulo": "Figura 2 (2/3): A entrada devém a máquina.",
-   "elementos": [
-    {"id": "v1", "tipo": "virtual", "x": 20, "y": 20, "w": 740, "h": 402, "legenda": "Fatorial"},
-    {"id": "d1", "tipo": "decisao", "pai": "v1", "x": 36, "y": 193, "w": 72, "h": 72, "rotulo": "=1"},
-    {"id": "m1", "tipo": "mecanico", "pai": "v1", "x": 167, "y": 116, "w": 61, "h": 44, "rotulo": "-1"},
-    {"id": "v2", "tipo": "virtual", "pai": "v1", "x": 369, "y": 63, "w": 198, "h": 151, "legenda": "Fatorial"},
-    {"id": "j1", "tipo": "juncao", "pai": "v1", "x": 122, "y": 133},
-    {"id": "m2", "tipo": "mecanico", "pai": "v1", "x": 591, "y": 245, "w": 40, "h": 42, "rotulo": "*"},
-    {"id": "j2", "tipo": "juncao", "pai": "v1", "x": 676, "y": 261},
-    {"id": "e1", "tipo": "estatico", "pai": "v1", "x": 274, "y": 113, "w": 95, "h": 52, "rotulo": "x-1"},
-    {"id": "e2", "tipo": "estatico", "pai": "v1", "x": 524, "y": 240, "w": 68, "h": 52, "rotulo": "x"},
-    {"id": "a2", "tipo": "anotacao", "pai": "v1", "x": 573, "y": 353, "w": 101, "h": 40, "texto": "(x>1)"}
-   ],
-   "fluxos": [
-    {"id": "f1", "de": {"elemento": "d1", "lado": "topo"}, "para": {"elemento": "j1", "lado": "esquerda"}, "rotulo": "n", "seta": false},
-    {"id": "f2", "de": {"elemento": "d1", "lado": "baixo"}, "para": {"elemento": "j2", "lado": "baixo"}, "rotulo": "s", "seta": false},
-    {"id": "f3", "de": {"elemento": "v1", "lado": "esquerda"}, "para": {"elemento": "d1", "lado": "esquerda"}},
-    {"id": "f4", "de": {"elemento": "m1", "lado": "direita"}, "para": {"elemento": "e1", "lado": "esquerda"}},
-    {"id": "f5", "de": {"elemento": "j1", "lado": "direita"}, "para": {"elemento": "m1", "lado": "esquerda"}},
-    {"id": "f6", "de": {"elemento": "j1", "lado": "baixo"}, "para": {"elemento": "e2", "lado": "esquerda"}},
-    {"id": "f7", "de": {"elemento": "v2", "lado": "direita"}, "para": {"elemento": "m2", "lado": "topo"}},
-    {"id": "f8", "de": {"elemento": "m2", "lado": "direita"}, "para": {"elemento": "j2", "lado": "esquerda"}},
-    {"id": "f9", "de": {"elemento": "j2", "lado": "direita"}, "para": {"elemento": "v1", "lado": "direita"}}
-   ]
-  },
-  {
-   "id": "figura-2c",
-   "titulo": "Figura 2 (3/3): A entrada devém a máquina.",
-   "elementos": [
-    {"id": "v1", "tipo": "virtual", "x": 20, "y": 20, "w": 878, "h": 482, "legenda": "Fatorial"},
-    {"id": "d1", "tipo": "decisao", "pai": "v1", "x": 36, "y": 274, "w": 72, "h": 72, "rotulo": "=1"},
-    {"id": "m1", "tipo": "mecanico", "pai": "v1", "x": 167, "y": 177, "w": 61, "h": 44, "rotulo": "-1"},
-    {"id": "v2", "tipo": "virtual", "pai": "v1", "x": 369, "y": 58, "w": 337, "h": 237, "legenda": "Fatorial"},
-    {"id": "j1", "tipo": "juncao", "pai": "v1", "x": 122, "y": 194},
-    {"id": "m2", "tipo": "mecanico", "pai": "v1", "x": 730, "y": 349, "w": 40, "h": 42, "rotulo": "*"},
-    {"id": "j2", "tipo": "juncao", "pai": "v1", "x": 815, "y": 366},
-    {"id": "e1", "tipo": "estatico", "pai": "v1", "x": 274, "y": 174, "w": 95, "h": 52, "rotulo": "x-1"},
-    {"id": "d2", "tipo": "decisao", "pai": "v2", "x": 17, "y": 124, "w": 35, "h": 37, "rotulo": "=1"},
-    {"id": "m3", "tipo": "mecanico", "pai": "v2", "x": 77, "y": 85, "w": 34, "h": 24, "rotulo": "-1"},
-    {"id": "j3", "tipo": "juncao", "pai": "v2", "x": 57, "y": 92},
-    {"id": "m4", "tipo": "mecanico", "pai": "v2", "x": 269, "y": 163, "w": 20, "h": 21, "rotulo": "*"},
-    {"id": "j4", "tipo": "juncao", "pai": "v2", "x": 302, "y": 169},
-    {"id": "v3", "tipo": "virtual", "pai": "v2", "x": 140, "y": 52, "w": 118, "h": 90},
-    {"id": "e2", "tipo": "estatico", "pai": "v1", "x": 664, "y": 344, "w": 65, "h": 52, "rotulo": "x"}
-   ],
-   "fluxos": [
-    {"id": "f1", "de": {"elemento": "d1", "lado": "topo"}, "para": {"elemento": "j1", "lado": "esquerda"}, "rotulo": "n", "seta": false},
-    {"id": "f2", "de": {"elemento": "d1", "lado": "baixo"}, "para": {"elemento": "j2", "lado": "baixo"}, "rotulo": "s", "seta": false},
-    {"id": "f3", "de": {"elemento": "v1", "lado": "esquerda"}, "para": {"elemento": "d1", "lado": "esquerda"}},
-    {"id": "f4", "de": {"elemento": "m1", "lado": "direita"}, "para": {"elemento": "e1", "lado": "esquerda"}},
-    {"id": "f5", "de": {"elemento": "j1", "lado": "direita"}, "para": {"elemento": "m1", "lado": "esquerda"}},
-    {"id": "f6", "de": {"elemento": "j1", "lado": "baixo"}, "para": {"elemento": "e2", "lado": "esquerda"}},
-    {"id": "f7", "de": {"elemento": "v2", "lado": "direita"}, "para": {"elemento": "m2", "lado": "topo"}},
-    {"id": "f8", "de": {"elemento": "m2", "lado": "direita"}, "para": {"elemento": "j2", "lado": "esquerda"}},
-    {"id": "f9", "de": {"elemento": "j2", "lado": "direita"}, "para": {"elemento": "v1", "lado": "direita"}},
-    {"id": "f10", "de": {"elemento": "d2", "lado": "topo"}, "para": {"elemento": "j3", "lado": "esquerda"}, "rotulo": "n", "seta": false},
-    {"id": "f11", "de": {"elemento": "d2", "lado": "baixo"}, "para": {"elemento": "j4", "lado": "baixo"}, "rotulo": "s", "seta": false},
-    {"id": "f12", "de": {"elemento": "e1", "lado": "direita"}, "para": {"elemento": "d2", "lado": "esquerda"}},
-    {"id": "f13", "de": {"elemento": "m3", "lado": "direita"}, "para": {"elemento": "v3", "lado": "esquerda"}},
-    {"id": "f14", "de": {"elemento": "j3", "lado": "direita"}, "para": {"elemento": "m3", "lado": "esquerda"}},
-    {"id": "f15", "de": {"elemento": "j3", "lado": "baixo"}, "para": {"elemento": "m4", "lado": "esquerda"}},
-    {"id": "f16", "de": {"elemento": "v3", "lado": "direita"}, "para": {"elemento": "m4", "lado": "topo"}},
-    {"id": "f17", "de": {"elemento": "m4", "lado": "direita"}, "para": {"elemento": "j4", "lado": "esquerda"}},
-    {"id": "f18", "de": {"elemento": "j4", "lado": "direita"}, "para": {"elemento": "v2", "lado": "direita"}},
-    {"id": "f19", "de": {"elemento": "v2", "lado": "topo"}, "para": {"elemento": "v3", "lado": "topo"}}
-   ]
-  },
-  {
-   "id": "figura-4",
-   "titulo": "Figura 4: Não-autoaceitadorRE? (Recursivamente Enumerável).",
-   "elementos": [
-    {"id": "v2", "tipo": "virtual", "x": 20, "y": 20, "w": 748, "h": 460, "legenda": "Não-autoaceitadorRE?"},
-    {"id": "v1", "tipo": "virtual", "pai": "v2", "x": 116, "y": 133, "w": 291, "h": 260},
-    {"id": "j1", "tipo": "juncao", "pai": "v2", "x": 59, "y": 229},
-    {"id": "d1", "tipo": "decisao", "pai": "v2", "x": 407, "y": 233, "w": 68, "h": 61, "rotulo": "?"},
-    {"id": "e1", "tipo": "estatico", "pai": "v2", "x": 491, "y": 166, "w": 45, "h": 43, "rotulo": "n", "traco": "fino"},
-    {"id": "e2", "tipo": "estatico", "pai": "v2", "x": 491, "y": 315, "w": 45, "h": 43, "rotulo": "s", "traco": "fino"},
-    {"id": "j2", "tipo": "juncao", "pai": "v2", "x": 649, "y": 258}
-   ],
-   "fluxos": [
-    {"id": "f1", "de": {"elemento": "v2", "lado": "esquerda"}, "para": {"elemento": "j1", "lado": "esquerda"}, "seta": false},
-    {"id": "f2", "de": {"elemento": "j1", "lado": "baixo"}, "para": {"elemento": "v1", "lado": "esquerda"}, "registro": "estatico"},
-    {"id": "f3", "de": {"elemento": "d1", "lado": "topo"}, "para": {"elemento": "e1", "lado": "esquerda"}, "rotulo": "s", "seta": false},
-    {"id": "f4", "de": {"elemento": "d1", "lado": "baixo"}, "para": {"elemento": "e2", "lado": "esquerda"}, "rotulo": "n", "seta": false},
-    {"id": "f5", "de": {"elemento": "e2", "lado": "direita"}, "para": {"elemento": "j2", "lado": "baixo"}, "seta": false},
-    {"id": "f6", "de": {"elemento": "e1", "lado": "direita"}, "para": {"elemento": "j2", "lado": "topo"}, "seta": false},
-    {"id": "f7", "de": {"elemento": "j2", "lado": "direita"}, "para": {"elemento": "v2", "lado": "direita"}},
-    {"id": "f8", "de": {"elemento": "j1", "lado": "topo"}, "para": {"elemento": "v1", "lado": "topo"}}
-   ]
-  },
-  {
-   "id": "figura-5",
-   "titulo": "Figura 5: Recebe o código de ax?.",
-   "elementos": [
-    {"id": "v2", "tipo": "virtual", "x": 121, "y": 20, "w": 748, "h": 460, "legenda": "Não-autoaceitadorRE?"},
-    {"id": "v1", "tipo": "virtual", "pai": "v2", "x": 116, "y": 133, "w": 291, "h": 260},
-    {"id": "j1", "tipo": "juncao", "pai": "v2", "x": 59, "y": 229},
-    {"id": "d1", "tipo": "decisao", "pai": "v2", "x": 407, "y": 233, "w": 68, "h": 61, "rotulo": "?"},
-    {"id": "e1", "tipo": "estatico", "pai": "v2", "x": 491, "y": 166, "w": 45, "h": 43, "rotulo": "n", "traco": "fino"},
-    {"id": "e2", "tipo": "estatico", "pai": "v2", "x": 491, "y": 315, "w": 45, "h": 43, "rotulo": "s", "traco": "fino"},
-    {"id": "j2", "tipo": "juncao", "pai": "v2", "x": 649, "y": 258},
-    {"id": "e3", "tipo": "estatico", "x": 20, "y": 211, "w": 101, "h": 87, "rotulo": "ax?"}
-   ],
-   "fluxos": [
-    {"id": "f1", "de": {"elemento": "e3", "lado": "direita"}, "para": {"elemento": "j1", "lado": "esquerda"}, "registro": "estatico"},
-    {"id": "f2", "de": {"elemento": "j1", "lado": "baixo"}, "para": {"elemento": "v1", "lado": "esquerda"}, "registro": "estatico"},
-    {"id": "f3", "de": {"elemento": "d1", "lado": "topo"}, "para": {"elemento": "e1", "lado": "esquerda"}, "rotulo": "s", "seta": false},
-    {"id": "f4", "de": {"elemento": "d1", "lado": "baixo"}, "para": {"elemento": "e2", "lado": "esquerda"}, "rotulo": "n", "seta": false},
-    {"id": "f5", "de": {"elemento": "e2", "lado": "direita"}, "para": {"elemento": "j2", "lado": "baixo"}, "seta": false},
-    {"id": "f6", "de": {"elemento": "e1", "lado": "direita"}, "para": {"elemento": "j2", "lado": "topo"}, "seta": false},
-    {"id": "f7", "de": {"elemento": "j2", "lado": "direita"}, "para": {"elemento": "v2", "lado": "direita"}},
-    {"id": "f8", "de": {"elemento": "j1", "lado": "topo"}, "para": {"elemento": "v1", "lado": "topo"}}
-   ]
-  },
-  {
-   "id": "figura-6",
-   "titulo": "Figura 6: Incorpora o código de ax?.",
-   "elementos": [
-    {"id": "v2", "tipo": "virtual", "x": 20, "y": 20, "w": 748, "h": 460, "legenda": "Não-autoaceitadorRE?"},
-    {"id": "v1", "tipo": "virtual", "pai": "v2", "x": 116, "y": 133, "w": 291, "h": 260, "legenda": "ax?"},
-    {"id": "d1", "tipo": "decisao", "pai": "v2", "x": 407, "y": 233, "w": 68, "h": 61, "rotulo": "?"},
-    {"id": "e1", "tipo": "estatico", "pai": "v2", "x": 491, "y": 166, "w": 45, "h": 43, "rotulo": "n", "traco": "fino"},
-    {"id": "e2", "tipo": "estatico", "pai": "v2", "x": 491, "y": 315, "w": 45, "h": 43, "rotulo": "s", "traco": "fino"},
-    {"id": "j1", "tipo": "juncao", "pai": "v2", "x": 649, "y": 258},
-    {"id": "e3", "tipo": "estatico", "pai": "v2", "x": 15, "y": 216, "w": 101, "h": 87, "rotulo": "ax?"}
-   ],
-   "fluxos": [
-    {"id": "f1", "de": {"elemento": "d1", "lado": "topo"}, "para": {"elemento": "e1", "lado": "esquerda"}, "rotulo": "s", "seta": false},
-    {"id": "f2", "de": {"elemento": "d1", "lado": "baixo"}, "para": {"elemento": "e2", "lado": "esquerda"}, "rotulo": "n", "seta": false},
-    {"id": "f3", "de": {"elemento": "e2", "lado": "direita"}, "para": {"elemento": "j1", "lado": "baixo"}, "seta": false},
-    {"id": "f4", "de": {"elemento": "e1", "lado": "direita"}, "para": {"elemento": "j1", "lado": "topo"}, "seta": false},
-    {"id": "f5", "de": {"elemento": "j1", "lado": "direita"}, "para": {"elemento": "v2", "lado": "direita"}}
-   ]
-  },
-  {
-   "id": "figura-7",
-   "titulo": "Figura 7: Sucesso: ax? não aceita a si mesmo.",
-   "elementos": [
-    {"id": "e1", "tipo": "estatico", "x": 768, "y": 239, "w": 88, "h": 87, "rotulo": "s"},
-    {"id": "v2", "tipo": "virtual", "x": 20, "y": 20, "w": 748, "h": 460, "legenda": "Não-autoaceitadorRE?"},
-    {"id": "v1", "tipo": "virtual", "pai": "v2", "x": 116, "y": 133, "w": 291, "h": 260, "legenda": "ax?"},
-    {"id": "d1", "tipo": "decisao", "pai": "v2", "x": 407, "y": 233, "w": 68, "h": 61, "rotulo": "?"},
-    {"id": "e2", "tipo": "estatico", "pai": "v2", "x": 491, "y": 166, "w": 45, "h": 43, "rotulo": "n", "traco": "fino"},
-    {"id": "e3", "tipo": "estatico", "pai": "v2", "x": 491, "y": 315, "w": 45, "h": 43, "rotulo": "s", "traco": "fino"},
-    {"id": "j1", "tipo": "juncao", "pai": "v2", "x": 649, "y": 258}
-   ],
-   "fluxos": [
-    {"id": "f1", "de": {"elemento": "d1", "lado": "topo"}, "para": {"elemento": "e2", "lado": "esquerda"}, "rotulo": "s", "seta": false},
-    {"id": "f2", "de": {"elemento": "d1", "lado": "baixo"}, "para": {"elemento": "e3", "lado": "esquerda"}, "rotulo": "n", "seta": false},
-    {"id": "f3", "de": {"elemento": "e3", "lado": "direita"}, "para": {"elemento": "j1", "lado": "baixo"}, "seta": false},
-    {"id": "f4", "de": {"elemento": "e2", "lado": "direita"}, "para": {"elemento": "j1", "lado": "topo"}, "seta": false},
-    {"id": "f5", "de": {"elemento": "j1", "lado": "direita"}, "para": {"elemento": "e1", "lado": "esquerda"}}
-   ]
-  },
-  {
-   "id": "figura-8",
-   "titulo": "Figura 8: Não-autoaceitadorRE? receberá o próprio código.",
-   "elementos": [
-    {"id": "v2", "tipo": "virtual", "x": 187, "y": 20, "w": 734, "h": 460, "legenda": "Não-autoaceitadorRE?"},
-    {"id": "v1", "tipo": "virtual", "pai": "v2", "x": 130, "y": 133, "w": 263, "h": 260},
-    {"id": "d1", "tipo": "decisao", "pai": "v2", "x": 392, "y": 233, "w": 68, "h": 61, "rotulo": "?"},
-    {"id": "e1", "tipo": "estatico", "pai": "v2", "x": 476, "y": 166, "w": 45, "h": 43, "rotulo": "n", "traco": "fino"},
-    {"id": "e2", "tipo": "estatico", "pai": "v2", "x": 476, "y": 315, "w": 45, "h": 43, "rotulo": "s", "traco": "fino"},
-    {"id": "j1", "tipo": "juncao", "pai": "v2", "x": 635, "y": 258},
-    {"id": "j2", "tipo": "juncao", "pai": "v2", "x": 30, "y": 220},
-    {"id": "e3", "tipo": "estatico", "x": 20, "y": 188, "w": 167, "h": 112, "rotulo": "Não-\nautoacei\ntadorRE"}
-   ],
-   "fluxos": [
-    {"id": "f1", "de": {"elemento": "d1", "lado": "topo"}, "para": {"elemento": "e1", "lado": "esquerda"}, "rotulo": "s", "seta": false},
-    {"id": "f2", "de": {"elemento": "d1", "lado": "baixo"}, "para": {"elemento": "e2", "lado": "esquerda"}, "rotulo": "n", "seta": false},
-    {"id": "f3", "de": {"elemento": "e2", "lado": "direita"}, "para": {"elemento": "j1", "lado": "baixo"}, "seta": false},
-    {"id": "f4", "de": {"elemento": "e1", "lado": "direita"}, "para": {"elemento": "j1", "lado": "topo"}, "seta": false},
-    {"id": "f5", "de": {"elemento": "j1", "lado": "direita"}, "para": {"elemento": "v2", "lado": "direita"}},
-    {"id": "f6", "de": {"elemento": "j2", "lado": "baixo"}, "para": {"elemento": "v1", "lado": "esquerda"}, "registro": "estatico"},
-    {"id": "f7", "de": {"elemento": "j2", "lado": "topo"}, "para": {"elemento": "v1", "lado": "topo"}},
-    {"id": "f8", "de": {"elemento": "v2", "lado": "topo"}, "para": {"elemento": "e3", "lado": "topo"}},
-    {"id": "f9", "de": {"elemento": "e3", "lado": "direita"}, "para": {"elemento": "j2", "lado": "esquerda"}, "registro": "estatico"}
-   ]
-  }
- ]
+  "formato": "metaforas",
+  "versao": 2,
+  "titulo": "Figuras de Metáforas (Tabela 1 e Figuras 1 a 11)",
+  "descricao": "As Figuras 1, 2 e 4 a 8 foram convertidas do Ensaio.pptx por um script de rascunho e ajustadas à mão; as 3 e 9 a 11, escritas à mão a partir do artigo, sem as reticências (9) e sem o Atalho (10 e 11), que estão fora da gramática por enquanto. Servem de exemplo e de teste.",
+  "diagramas": [
+    {
+      "id": "tabela-1",
+      "titulo": "Tabela 1: Objetos e interfaces",
+      "elementos": [
+        {"id": "cab", "tipo": "anotacao", "x": 20, "y": 20, "w": 150, "h": 40, "texto": "Interface \\ Objeto"},
+        {"id": "col-estatico", "tipo": "anotacao", "x": 190, "y": 20, "w": 150, "h": 40, "texto": "Estático"},
+        {"id": "col-virtual", "tipo": "anotacao", "x": 360, "y": 20, "w": 150, "h": 40, "texto": "Virtual"},
+        {"id": "col-mecanico", "tipo": "anotacao", "x": 530, "y": 20, "w": 150, "h": 40, "texto": "Mecânico"},
+        {"id": "lin-estatico", "tipo": "anotacao", "x": 20, "y": 125, "w": 150, "h": 40, "texto": "Estática"},
+        {"id": "ee-i", "tipo": "estatico", "x": 190, "y": 70, "w": 150, "h": 150},
+        {"id": "ee-o", "tipo": "estatico", "pai": "ee-i", "x": 20, "y": 20, "w": 110, "h": 110},
+        {"id": "ev-i", "tipo": "estatico", "x": 360, "y": 70, "w": 150, "h": 150},
+        {"id": "ev-o", "tipo": "virtual", "pai": "ev-i", "x": 27, "y": 27, "w": 96, "h": 96},
+        {"id": "em-i", "tipo": "estatico", "x": 530, "y": 70, "w": 150, "h": 150},
+        {"id": "em-o", "tipo": "mecanico", "pai": "em-i", "x": 27, "y": 27, "w": 96, "h": 96},
+        {"id": "lin-virtual", "tipo": "anotacao", "x": 20, "y": 295, "w": 150, "h": 40, "texto": "Virtual"},
+        {"id": "ve-i", "tipo": "virtual", "x": 190, "y": 240, "w": 150, "h": 150},
+        {"id": "ve-o", "tipo": "estatico", "pai": "ve-i", "x": 20, "y": 20, "w": 110, "h": 110},
+        {"id": "vv-i", "tipo": "virtual", "x": 360, "y": 240, "w": 150, "h": 150},
+        {"id": "vv-o", "tipo": "virtual", "pai": "vv-i", "x": 20, "y": 20, "w": 110, "h": 110},
+        {"id": "vm-i", "tipo": "virtual", "x": 530, "y": 240, "w": 150, "h": 150},
+        {"id": "vm-o", "tipo": "mecanico", "pai": "vm-i", "x": 20, "y": 20, "w": 110, "h": 110},
+        {"id": "lin-mecanico", "tipo": "anotacao", "x": 20, "y": 465, "w": 150, "h": 40, "texto": "Mecânica"},
+        {"id": "me-i", "tipo": "mecanico", "x": 190, "y": 410, "w": 150, "h": 150},
+        {"id": "me-o", "tipo": "estatico", "pai": "me-i", "x": 20, "y": 20, "w": 110, "h": 110},
+        {"id": "mv-i", "tipo": "mecanico", "x": 360, "y": 410, "w": 150, "h": 150},
+        {"id": "mv-o", "tipo": "virtual", "pai": "mv-i", "x": 20, "y": 20, "w": 110, "h": 110},
+        {"id": "mm-i", "tipo": "mecanico", "x": 530, "y": 410, "w": 150, "h": 150},
+        {"id": "mm-o", "tipo": "mecanico", "pai": "mm-i", "x": 20, "y": 20, "w": 110, "h": 110}
+      ],
+      "fluxos": []
+    },
+    {
+      "id": "figura-1",
+      "titulo": "Figura 1: Algo pode acontecer quando um código (F) é posto a funcionar em uma arquitetura (M). Sem as setas de transformação, que ficam para depois.",
+      "elementos": [
+        {"id": "m1", "tipo": "mecanico", "x": 625, "y": 20, "w": 196, "h": 182, "legenda": "M"},
+        {"id": "e1", "tipo": "estatico", "x": 20, "y": 32, "w": 155, "h": 158, "rotulo": "F"},
+        {"id": "m2", "tipo": "mecanico", "x": 216, "y": 20, "w": 196, "h": 182, "legenda": "M"},
+        {"id": "e2", "tipo": "estatico", "pai": "m1", "x": 20, "y": 12, "w": 155, "h": 158, "rotulo": "F"},
+        {"id": "e3", "tipo": "estatico", "x": 20, "y": 349, "w": 155, "h": 158, "rotulo": "F"},
+        {"id": "m3", "tipo": "mecanico", "x": 216, "y": 338, "w": 196, "h": 182, "legenda": "M"},
+        {"id": "v1", "tipo": "virtual", "x": 631, "y": 338, "w": 189, "h": 182, "legenda": "F"},
+        {"id": "v2", "tipo": "virtual", "pai": "m3", "x": 33, "y": 29, "w": 130, "h": 124}
+      ],
+      "fluxos": []
+    },
+    {
+      "id": "figura-2a",
+      "titulo": "Figura 2 (1/3): A entrada devém a máquina.",
+      "elementos": [
+        {"id": "e1", "tipo": "estatico", "x": 20, "y": 227, "w": 72, "h": 44, "rotulo": "x"},
+        {"id": "v1", "tipo": "virtual", "x": 92, "y": 20, "w": 708, "h": 377, "legenda": "Fatorial"},
+        {"id": "d1", "tipo": "decisao", "pai": "v1", "x": 36, "y": 193, "w": 72, "h": 72, "rotulo": "=1"},
+        {"id": "m1", "tipo": "mecanico", "pai": "v1", "x": 214, "y": 116, "w": 61, "h": 44, "rotulo": "-1"},
+        {"id": "v2", "tipo": "virtual", "pai": "v1", "x": 324, "y": 63, "w": 198, "h": 151},
+        {"id": "j1", "tipo": "juncao", "pai": "v1", "x": 152, "y": 133},
+        {"id": "m2", "tipo": "mecanico", "pai": "v1", "x": 560, "y": 245, "w": 40, "h": 42, "rotulo": "*"},
+        {"id": "j2", "tipo": "juncao", "pai": "v1", "x": 645, "y": 261}
+      ],
+      "fluxos": [
+        {"id": "f1", "de": {"elemento": "d1", "lado": "topo"}, "para": {"elemento": "j1", "lado": "esquerda"}, "rotulo": "n"},
+        {"id": "f2", "de": {"elemento": "d1", "lado": "baixo"}, "para": {"elemento": "j2", "lado": "baixo"}, "rotulo": "s"},
+        {"id": "f3", "de": {"elemento": "e1", "lado": "direita"}, "para": {"elemento": "d1", "lado": "esquerda"}},
+        {"id": "f4", "de": {"elemento": "m1", "lado": "direita"}, "para": {"elemento": "v2", "lado": "esquerda"}},
+        {"id": "f5", "de": {"elemento": "j1", "lado": "direita"}, "para": {"elemento": "m1", "lado": "esquerda"}},
+        {"id": "f6", "de": {"elemento": "j1", "lado": "baixo"}, "para": {"elemento": "m2", "lado": "esquerda"}},
+        {"id": "f7", "de": {"elemento": "v2", "lado": "direita"}, "para": {"elemento": "m2", "lado": "topo"}},
+        {"id": "f8", "de": {"elemento": "m2", "lado": "direita"}, "para": {"elemento": "j2", "lado": "esquerda"}},
+        {"id": "f9", "de": {"elemento": "j2", "lado": "direita"}, "para": {"elemento": "v1", "lado": "direita"}},
+        {"id": "f10", "de": {"elemento": "v1", "lado": "topo"}, "para": {"elemento": "v2", "lado": "topo"}}
+      ]
+    },
+    {
+      "id": "figura-2b",
+      "titulo": "Figura 2 (2/3): A entrada devém a máquina.",
+      "elementos": [
+        {"id": "v1", "tipo": "virtual", "x": 20, "y": 20, "w": 740, "h": 402, "legenda": "Fatorial"},
+        {"id": "d1", "tipo": "decisao", "pai": "v1", "x": 36, "y": 193, "w": 72, "h": 72, "rotulo": "=1"},
+        {"id": "m1", "tipo": "mecanico", "pai": "v1", "x": 167, "y": 116, "w": 61, "h": 44, "rotulo": "-1"},
+        {"id": "v2", "tipo": "virtual", "pai": "v1", "x": 369, "y": 63, "w": 198, "h": 151, "legenda": "Fatorial"},
+        {"id": "j1", "tipo": "juncao", "pai": "v1", "x": 122, "y": 133},
+        {"id": "m2", "tipo": "mecanico", "pai": "v1", "x": 591, "y": 245, "w": 40, "h": 42, "rotulo": "*"},
+        {"id": "j2", "tipo": "juncao", "pai": "v1", "x": 676, "y": 261},
+        {"id": "e1", "tipo": "estatico", "pai": "v1", "x": 274, "y": 113, "w": 95, "h": 52, "rotulo": "x-1"},
+        {"id": "e2", "tipo": "estatico", "pai": "v1", "x": 524, "y": 240, "w": 68, "h": 52, "rotulo": "x"},
+        {"id": "a2", "tipo": "anotacao", "pai": "v1", "x": 573, "y": 353, "w": 101, "h": 40, "texto": "(x>1)"}
+      ],
+      "fluxos": [
+        {"id": "f1", "de": {"elemento": "d1", "lado": "topo"}, "para": {"elemento": "j1", "lado": "esquerda"}, "rotulo": "n"},
+        {"id": "f2", "de": {"elemento": "d1", "lado": "baixo"}, "para": {"elemento": "j2", "lado": "baixo"}, "rotulo": "s"},
+        {"id": "f3", "de": {"elemento": "v1", "lado": "esquerda"}, "para": {"elemento": "d1", "lado": "esquerda"}},
+        {"id": "f4", "de": {"elemento": "m1", "lado": "direita"}, "para": {"elemento": "e1", "lado": "esquerda"}},
+        {"id": "f5", "de": {"elemento": "j1", "lado": "direita"}, "para": {"elemento": "m1", "lado": "esquerda"}},
+        {"id": "f6", "de": {"elemento": "j1", "lado": "baixo"}, "para": {"elemento": "e2", "lado": "esquerda"}},
+        {"id": "f7", "de": {"elemento": "v2", "lado": "direita"}, "para": {"elemento": "m2", "lado": "topo"}},
+        {"id": "f8", "de": {"elemento": "m2", "lado": "direita"}, "para": {"elemento": "j2", "lado": "esquerda"}},
+        {"id": "f9", "de": {"elemento": "j2", "lado": "direita"}, "para": {"elemento": "v1", "lado": "direita"}}
+      ]
+    },
+    {
+      "id": "figura-2c",
+      "titulo": "Figura 2 (3/3): A entrada devém a máquina.",
+      "elementos": [
+        {"id": "v1", "tipo": "virtual", "x": 20, "y": 20, "w": 878, "h": 482, "legenda": "Fatorial"},
+        {"id": "d1", "tipo": "decisao", "pai": "v1", "x": 36, "y": 274, "w": 72, "h": 72, "rotulo": "=1"},
+        {"id": "m1", "tipo": "mecanico", "pai": "v1", "x": 167, "y": 177, "w": 61, "h": 44, "rotulo": "-1"},
+        {"id": "v2", "tipo": "virtual", "pai": "v1", "x": 369, "y": 58, "w": 337, "h": 237, "legenda": "Fatorial"},
+        {"id": "j1", "tipo": "juncao", "pai": "v1", "x": 122, "y": 194},
+        {"id": "m2", "tipo": "mecanico", "pai": "v1", "x": 730, "y": 349, "w": 40, "h": 42, "rotulo": "*"},
+        {"id": "j2", "tipo": "juncao", "pai": "v1", "x": 815, "y": 366},
+        {"id": "e1", "tipo": "estatico", "pai": "v1", "x": 274, "y": 174, "w": 95, "h": 52, "rotulo": "x-1"},
+        {"id": "d2", "tipo": "decisao", "pai": "v2", "x": 17, "y": 124, "w": 35, "h": 37, "rotulo": "=1"},
+        {"id": "m3", "tipo": "mecanico", "pai": "v2", "x": 77, "y": 85, "w": 34, "h": 24, "rotulo": "-1"},
+        {"id": "j3", "tipo": "juncao", "pai": "v2", "x": 57, "y": 92},
+        {"id": "m4", "tipo": "mecanico", "pai": "v2", "x": 269, "y": 163, "w": 20, "h": 21, "rotulo": "*"},
+        {"id": "j4", "tipo": "juncao", "pai": "v2", "x": 302, "y": 169},
+        {"id": "v3", "tipo": "virtual", "pai": "v2", "x": 140, "y": 52, "w": 118, "h": 90},
+        {"id": "e2", "tipo": "estatico", "pai": "v1", "x": 664, "y": 344, "w": 65, "h": 52, "rotulo": "x"}
+      ],
+      "fluxos": [
+        {"id": "f1", "de": {"elemento": "d1", "lado": "topo"}, "para": {"elemento": "j1", "lado": "esquerda"}, "rotulo": "n"},
+        {"id": "f2", "de": {"elemento": "d1", "lado": "baixo"}, "para": {"elemento": "j2", "lado": "baixo"}, "rotulo": "s"},
+        {"id": "f3", "de": {"elemento": "v1", "lado": "esquerda"}, "para": {"elemento": "d1", "lado": "esquerda"}},
+        {"id": "f4", "de": {"elemento": "m1", "lado": "direita"}, "para": {"elemento": "e1", "lado": "esquerda"}},
+        {"id": "f5", "de": {"elemento": "j1", "lado": "direita"}, "para": {"elemento": "m1", "lado": "esquerda"}},
+        {"id": "f6", "de": {"elemento": "j1", "lado": "baixo"}, "para": {"elemento": "e2", "lado": "esquerda"}},
+        {"id": "f7", "de": {"elemento": "v2", "lado": "direita"}, "para": {"elemento": "m2", "lado": "topo"}},
+        {"id": "f8", "de": {"elemento": "m2", "lado": "direita"}, "para": {"elemento": "j2", "lado": "esquerda"}},
+        {"id": "f9", "de": {"elemento": "j2", "lado": "direita"}, "para": {"elemento": "v1", "lado": "direita"}},
+        {"id": "f10", "de": {"elemento": "d2", "lado": "topo"}, "para": {"elemento": "j3", "lado": "esquerda"}, "rotulo": "n"},
+        {"id": "f11", "de": {"elemento": "d2", "lado": "baixo"}, "para": {"elemento": "j4", "lado": "baixo"}, "rotulo": "s"},
+        {"id": "f12", "de": {"elemento": "e1", "lado": "direita"}, "para": {"elemento": "d2", "lado": "esquerda"}},
+        {"id": "f13", "de": {"elemento": "m3", "lado": "direita"}, "para": {"elemento": "v3", "lado": "esquerda"}},
+        {"id": "f14", "de": {"elemento": "j3", "lado": "direita"}, "para": {"elemento": "m3", "lado": "esquerda"}},
+        {"id": "f15", "de": {"elemento": "j3", "lado": "baixo"}, "para": {"elemento": "m4", "lado": "esquerda"}},
+        {"id": "f16", "de": {"elemento": "v3", "lado": "direita"}, "para": {"elemento": "m4", "lado": "topo"}},
+        {"id": "f17", "de": {"elemento": "m4", "lado": "direita"}, "para": {"elemento": "j4", "lado": "esquerda"}},
+        {"id": "f18", "de": {"elemento": "j4", "lado": "direita"}, "para": {"elemento": "v2", "lado": "direita"}},
+        {"id": "f19", "de": {"elemento": "v2", "lado": "topo"}, "para": {"elemento": "v3", "lado": "topo"}}
+      ]
+    },
+    {
+      "id": "figura-3a",
+      "titulo": "Figura 3 (1/3): A máquina devém o resultado.",
+      "elementos": [
+        {"id": "v1", "tipo": "virtual", "x": 20, "y": 20, "w": 740, "h": 402, "legenda": "Fatorial"},
+        {"id": "v2", "tipo": "virtual", "pai": "v1", "x": 60, "y": 50, "w": 440, "h": 240, "legenda": "Fatorial"},
+        {"id": "d1", "tipo": "decisao", "pai": "v2", "x": 15, "y": 110, "w": 36, "h": 36, "rotulo": "=1"},
+        {"id": "j1", "tipo": "juncao", "pai": "v2", "x": 60, "y": 64},
+        {"id": "m1", "tipo": "mecanico", "pai": "v2", "x": 82, "y": 56, "w": 34, "h": 26, "rotulo": "-1"},
+        {"id": "e1", "tipo": "estatico", "pai": "v2", "x": 138, "y": 52, "w": 70, "h": 34, "rotulo": "x-2"},
+        {"id": "v3", "tipo": "virtual", "pai": "v2", "x": 225, "y": 40, "w": 110, "h": 80},
+        {"id": "e2", "tipo": "estatico", "pai": "v2", "x": 292, "y": 155, "w": 66, "h": 34, "rotulo": "x-1"},
+        {"id": "m2", "tipo": "mecanico", "pai": "v2", "x": 358, "y": 160, "w": 24, "h": 24, "rotulo": "*"},
+        {"id": "j2", "tipo": "juncao", "pai": "v2", "x": 405, "y": 167},
+        {"id": "e3", "tipo": "estatico", "pai": "v1", "x": 482, "y": 296, "w": 78, "h": 52, "rotulo": "x"},
+        {"id": "m3", "tipo": "mecanico", "pai": "v1", "x": 560, "y": 300, "w": 44, "h": 44, "rotulo": "*"},
+        {"id": "a1", "tipo": "anotacao", "pai": "v1", "x": 590, "y": 352, "w": 130, "h": 40, "texto": "(x-1>1)"}
+      ],
+      "fluxos": [
+        {"id": "f1", "de": {"elemento": "v2", "lado": "esquerda"}, "para": {"elemento": "d1", "lado": "esquerda"}},
+        {"id": "f2", "de": {"elemento": "d1", "lado": "topo"}, "para": {"elemento": "j1", "lado": "esquerda"}, "rotulo": "n"},
+        {"id": "f3", "de": {"elemento": "j1", "lado": "direita"}, "para": {"elemento": "m1", "lado": "esquerda"}},
+        {"id": "f4", "de": {"elemento": "m1", "lado": "direita"}, "para": {"elemento": "e1", "lado": "esquerda"}},
+        {"id": "f5", "de": {"elemento": "j1", "lado": "baixo"}, "para": {"elemento": "e2", "lado": "esquerda"}},
+        {"id": "f6", "de": {"elemento": "v2", "lado": "topo"}, "para": {"elemento": "v3", "lado": "topo"}},
+        {"id": "f7", "de": {"elemento": "v3", "lado": "direita"}, "para": {"elemento": "m2", "lado": "topo"}},
+        {"id": "f8", "de": {"elemento": "m2", "lado": "direita"}, "para": {"elemento": "j2", "lado": "esquerda"}},
+        {"id": "f9", "de": {"elemento": "d1", "lado": "baixo"}, "para": {"elemento": "j2", "lado": "baixo"}, "rotulo": "s"},
+        {"id": "f10", "de": {"elemento": "j2", "lado": "direita"}, "para": {"elemento": "v2", "lado": "direita"}},
+        {"id": "f11", "de": {"elemento": "v2", "lado": "direita"}, "para": {"elemento": "m3", "lado": "topo"}},
+        {"id": "f12", "de": {"elemento": "m3", "lado": "direita"}, "para": {"elemento": "v1", "lado": "direita"}}
+      ]
+    },
+    {
+      "id": "figura-3b",
+      "titulo": "Figura 3 (2/3): A máquina devém o resultado.",
+      "elementos": [
+        {"id": "v1", "tipo": "virtual", "x": 20, "y": 20, "w": 380, "h": 300, "legenda": "Fatorial"},
+        {"id": "e1", "tipo": "estatico", "pai": "v1", "x": 90, "y": 110, "w": 140, "h": 44, "rotulo": "(x-1)!"},
+        {"id": "e2", "tipo": "estatico", "pai": "v1", "x": 212, "y": 210, "w": 64, "h": 44, "rotulo": "x"},
+        {"id": "m1", "tipo": "mecanico", "pai": "v1", "x": 276, "y": 210, "w": 44, "h": 44, "rotulo": "*"}
+      ],
+      "fluxos": [
+        {"id": "f1", "de": {"elemento": "e1", "lado": "direita"}, "para": {"elemento": "m1", "lado": "topo"}},
+        {"id": "f2", "de": {"elemento": "m1", "lado": "direita"}, "para": {"elemento": "v1", "lado": "direita"}}
+      ]
+    },
+    {
+      "id": "figura-3c",
+      "titulo": "Figura 3 (3/3): A máquina devém o resultado.",
+      "elementos": [
+        {"id": "v1", "tipo": "virtual", "x": 20, "y": 20, "w": 300, "h": 220, "legenda": "Fatorial"},
+        {"id": "e1", "tipo": "estatico", "x": 300, "y": 160, "w": 76, "h": 44, "rotulo": "x!"}
+      ],
+      "fluxos": []
+    },
+    {
+      "id": "figura-4",
+      "titulo": "Figura 4: Não-autoaceitadorRE? (Recursivamente Enumerável).",
+      "elementos": [
+        {"id": "v2", "tipo": "virtual", "x": 20, "y": 20, "w": 748, "h": 460, "legenda": "Não-autoaceitadorRE?"},
+        {"id": "v1", "tipo": "virtual", "pai": "v2", "x": 116, "y": 133, "w": 291, "h": 260},
+        {"id": "j1", "tipo": "juncao", "pai": "v2", "x": 59, "y": 229},
+        {"id": "d1", "tipo": "decisao", "pai": "v2", "x": 407, "y": 233, "w": 68, "h": 61, "rotulo": "?"},
+        {"id": "e1", "tipo": "estatico", "pai": "v2", "x": 491, "y": 166, "w": 45, "h": 43, "rotulo": "n"},
+        {"id": "e2", "tipo": "estatico", "pai": "v2", "x": 491, "y": 315, "w": 45, "h": 43, "rotulo": "s"},
+        {"id": "j2", "tipo": "juncao", "pai": "v2", "x": 649, "y": 258}
+      ],
+      "fluxos": [
+        {"id": "f1", "de": {"elemento": "v2", "lado": "esquerda"}, "para": {"elemento": "j1", "lado": "esquerda"}},
+        {"id": "f2", "de": {"elemento": "j1", "lado": "baixo"}, "para": {"elemento": "v1", "lado": "esquerda"}},
+        {"id": "f3", "de": {"elemento": "d1", "lado": "topo"}, "para": {"elemento": "e1", "lado": "esquerda"}, "rotulo": "s"},
+        {"id": "f4", "de": {"elemento": "d1", "lado": "baixo"}, "para": {"elemento": "e2", "lado": "esquerda"}, "rotulo": "n"},
+        {"id": "f5", "de": {"elemento": "e2", "lado": "direita"}, "para": {"elemento": "j2", "lado": "baixo"}},
+        {"id": "f6", "de": {"elemento": "e1", "lado": "direita"}, "para": {"elemento": "j2", "lado": "topo"}},
+        {"id": "f7", "de": {"elemento": "j2", "lado": "direita"}, "para": {"elemento": "v2", "lado": "direita"}},
+        {"id": "f8", "de": {"elemento": "j1", "lado": "topo"}, "para": {"elemento": "v1", "lado": "topo"}}
+      ]
+    },
+    {
+      "id": "figura-5",
+      "titulo": "Figura 5: Recebe o código de ax?.",
+      "elementos": [
+        {"id": "v2", "tipo": "virtual", "x": 121, "y": 20, "w": 748, "h": 460, "legenda": "Não-autoaceitadorRE?"},
+        {"id": "v1", "tipo": "virtual", "pai": "v2", "x": 116, "y": 133, "w": 291, "h": 260},
+        {"id": "j1", "tipo": "juncao", "pai": "v2", "x": 59, "y": 229},
+        {"id": "d1", "tipo": "decisao", "pai": "v2", "x": 407, "y": 233, "w": 68, "h": 61, "rotulo": "?"},
+        {"id": "e1", "tipo": "estatico", "pai": "v2", "x": 491, "y": 166, "w": 45, "h": 43, "rotulo": "n"},
+        {"id": "e2", "tipo": "estatico", "pai": "v2", "x": 491, "y": 315, "w": 45, "h": 43, "rotulo": "s"},
+        {"id": "j2", "tipo": "juncao", "pai": "v2", "x": 649, "y": 258},
+        {"id": "e3", "tipo": "estatico", "x": 20, "y": 211, "w": 101, "h": 87, "rotulo": "ax?"}
+      ],
+      "fluxos": [
+        {"id": "f1", "de": {"elemento": "e3", "lado": "direita"}, "para": {"elemento": "j1", "lado": "esquerda"}},
+        {"id": "f2", "de": {"elemento": "j1", "lado": "baixo"}, "para": {"elemento": "v1", "lado": "esquerda"}},
+        {"id": "f3", "de": {"elemento": "d1", "lado": "topo"}, "para": {"elemento": "e1", "lado": "esquerda"}, "rotulo": "s"},
+        {"id": "f4", "de": {"elemento": "d1", "lado": "baixo"}, "para": {"elemento": "e2", "lado": "esquerda"}, "rotulo": "n"},
+        {"id": "f5", "de": {"elemento": "e2", "lado": "direita"}, "para": {"elemento": "j2", "lado": "baixo"}},
+        {"id": "f6", "de": {"elemento": "e1", "lado": "direita"}, "para": {"elemento": "j2", "lado": "topo"}},
+        {"id": "f7", "de": {"elemento": "j2", "lado": "direita"}, "para": {"elemento": "v2", "lado": "direita"}},
+        {"id": "f8", "de": {"elemento": "j1", "lado": "topo"}, "para": {"elemento": "v1", "lado": "topo"}}
+      ]
+    },
+    {
+      "id": "figura-6",
+      "titulo": "Figura 6: Incorpora o código de ax?.",
+      "elementos": [
+        {"id": "v2", "tipo": "virtual", "x": 20, "y": 20, "w": 748, "h": 460, "legenda": "Não-autoaceitadorRE?"},
+        {"id": "v1", "tipo": "virtual", "pai": "v2", "x": 116, "y": 133, "w": 291, "h": 260, "legenda": "ax?"},
+        {"id": "d1", "tipo": "decisao", "pai": "v2", "x": 407, "y": 233, "w": 68, "h": 61, "rotulo": "?"},
+        {"id": "e1", "tipo": "estatico", "pai": "v2", "x": 491, "y": 166, "w": 45, "h": 43, "rotulo": "n"},
+        {"id": "e2", "tipo": "estatico", "pai": "v2", "x": 491, "y": 315, "w": 45, "h": 43, "rotulo": "s"},
+        {"id": "j1", "tipo": "juncao", "pai": "v2", "x": 649, "y": 258},
+        {"id": "e3", "tipo": "estatico", "pai": "v2", "x": 15, "y": 216, "w": 101, "h": 87, "rotulo": "ax?"}
+      ],
+      "fluxos": [
+        {"id": "f1", "de": {"elemento": "d1", "lado": "topo"}, "para": {"elemento": "e1", "lado": "esquerda"}, "rotulo": "s"},
+        {"id": "f2", "de": {"elemento": "d1", "lado": "baixo"}, "para": {"elemento": "e2", "lado": "esquerda"}, "rotulo": "n"},
+        {"id": "f3", "de": {"elemento": "e2", "lado": "direita"}, "para": {"elemento": "j1", "lado": "baixo"}},
+        {"id": "f4", "de": {"elemento": "e1", "lado": "direita"}, "para": {"elemento": "j1", "lado": "topo"}},
+        {"id": "f5", "de": {"elemento": "j1", "lado": "direita"}, "para": {"elemento": "v2", "lado": "direita"}}
+      ]
+    },
+    {
+      "id": "figura-7",
+      "titulo": "Figura 7: Sucesso: ax? não aceita a si mesmo.",
+      "elementos": [
+        {"id": "e1", "tipo": "estatico", "x": 768, "y": 239, "w": 88, "h": 87, "rotulo": "s"},
+        {"id": "v2", "tipo": "virtual", "x": 20, "y": 20, "w": 748, "h": 460, "legenda": "Não-autoaceitadorRE?"},
+        {"id": "v1", "tipo": "virtual", "pai": "v2", "x": 116, "y": 133, "w": 291, "h": 260, "legenda": "ax?"},
+        {"id": "d1", "tipo": "decisao", "pai": "v2", "x": 407, "y": 233, "w": 68, "h": 61, "rotulo": "?"},
+        {"id": "e2", "tipo": "estatico", "pai": "v2", "x": 491, "y": 166, "w": 45, "h": 43, "rotulo": "n"},
+        {"id": "e3", "tipo": "estatico", "pai": "v2", "x": 491, "y": 315, "w": 45, "h": 43, "rotulo": "s"},
+        {"id": "j1", "tipo": "juncao", "pai": "v2", "x": 649, "y": 258}
+      ],
+      "fluxos": [
+        {"id": "f1", "de": {"elemento": "d1", "lado": "topo"}, "para": {"elemento": "e2", "lado": "esquerda"}, "rotulo": "s"},
+        {"id": "f2", "de": {"elemento": "d1", "lado": "baixo"}, "para": {"elemento": "e3", "lado": "esquerda"}, "rotulo": "n"},
+        {"id": "f3", "de": {"elemento": "e3", "lado": "direita"}, "para": {"elemento": "j1", "lado": "baixo"}},
+        {"id": "f4", "de": {"elemento": "e2", "lado": "direita"}, "para": {"elemento": "j1", "lado": "topo"}},
+        {"id": "f5", "de": {"elemento": "j1", "lado": "direita"}, "para": {"elemento": "e1", "lado": "esquerda"}}
+      ]
+    },
+    {
+      "id": "figura-8",
+      "titulo": "Figura 8: Não-autoaceitadorRE? receberá o próprio código.",
+      "elementos": [
+        {"id": "v2", "tipo": "virtual", "x": 187, "y": 20, "w": 734, "h": 460, "legenda": "Não-autoaceitadorRE?"},
+        {"id": "v1", "tipo": "virtual", "pai": "v2", "x": 130, "y": 133, "w": 263, "h": 260},
+        {"id": "d1", "tipo": "decisao", "pai": "v2", "x": 392, "y": 233, "w": 68, "h": 61, "rotulo": "?"},
+        {"id": "e1", "tipo": "estatico", "pai": "v2", "x": 476, "y": 166, "w": 45, "h": 43, "rotulo": "n"},
+        {"id": "e2", "tipo": "estatico", "pai": "v2", "x": 476, "y": 315, "w": 45, "h": 43, "rotulo": "s"},
+        {"id": "j1", "tipo": "juncao", "pai": "v2", "x": 635, "y": 258},
+        {"id": "j2", "tipo": "juncao", "pai": "v2", "x": 30, "y": 220},
+        {"id": "e3", "tipo": "estatico", "x": 20, "y": 188, "w": 167, "h": 112, "rotulo": "Não-\nautoacei\ntadorRE"}
+      ],
+      "fluxos": [
+        {"id": "f1", "de": {"elemento": "d1", "lado": "topo"}, "para": {"elemento": "e1", "lado": "esquerda"}, "rotulo": "s"},
+        {"id": "f2", "de": {"elemento": "d1", "lado": "baixo"}, "para": {"elemento": "e2", "lado": "esquerda"}, "rotulo": "n"},
+        {"id": "f3", "de": {"elemento": "e2", "lado": "direita"}, "para": {"elemento": "j1", "lado": "baixo"}},
+        {"id": "f4", "de": {"elemento": "e1", "lado": "direita"}, "para": {"elemento": "j1", "lado": "topo"}},
+        {"id": "f5", "de": {"elemento": "j1", "lado": "direita"}, "para": {"elemento": "v2", "lado": "direita"}},
+        {"id": "f6", "de": {"elemento": "j2", "lado": "baixo"}, "para": {"elemento": "v1", "lado": "esquerda"}},
+        {"id": "f7", "de": {"elemento": "j2", "lado": "topo"}, "para": {"elemento": "v1", "lado": "topo"}},
+        {"id": "f8", "de": {"elemento": "v2", "lado": "topo"}, "para": {"elemento": "e3", "lado": "topo"}},
+        {"id": "f9", "de": {"elemento": "e3", "lado": "direita"}, "para": {"elemento": "j2", "lado": "esquerda"}}
+      ]
+    },
+    {
+      "id": "figura-9",
+      "titulo": "Figura 9: Fracasso: Não-autoaceitadorRE? não para. Sem as reticências.",
+      "elementos": [
+        {"id": "v2", "tipo": "virtual", "x": 187, "y": 20, "w": 860, "h": 460, "legenda": "Não-autoaceitadorRE?"},
+        {"id": "e3", "tipo": "estatico", "x": 20, "y": 188, "w": 167, "h": 112, "rotulo": "Não-\nautoacei\ntadorRE"},
+        {"id": "j2", "tipo": "juncao", "pai": "v2", "x": 30, "y": 220},
+        {"id": "e4", "tipo": "estatico", "pai": "v2", "x": 76, "y": 190, "w": 110, "h": 70, "rotulo": "Não-\nautoacei\ntadorRE"},
+        {"id": "v3", "tipo": "virtual", "pai": "v2", "x": 185, "y": 110, "w": 340, "h": 250, "legenda": "Não-autoaceitadorRE?"},
+        {"id": "j3", "tipo": "juncao", "pai": "v3", "x": 18, "y": 130},
+        {"id": "v4", "tipo": "virtual", "pai": "v3", "x": 50, "y": 70, "w": 110, "h": 130},
+        {"id": "d2", "tipo": "decisao", "pai": "v3", "x": 180, "y": 113, "w": 44, "h": 44, "rotulo": "?"},
+        {"id": "e5", "tipo": "estatico", "pai": "v3", "x": 245, "y": 60, "w": 34, "h": 30, "rotulo": "n"},
+        {"id": "e6", "tipo": "estatico", "pai": "v3", "x": 245, "y": 180, "w": 34, "h": 30, "rotulo": "s"},
+        {"id": "j4", "tipo": "juncao", "pai": "v3", "x": 305, "y": 130},
+        {"id": "d1", "tipo": "decisao", "pai": "v2", "x": 560, "y": 214, "w": 68, "h": 61, "rotulo": "?"},
+        {"id": "e1", "tipo": "estatico", "pai": "v2", "x": 650, "y": 149, "w": 45, "h": 43, "rotulo": "n"},
+        {"id": "e2", "tipo": "estatico", "pai": "v2", "x": 650, "y": 299, "w": 45, "h": 43, "rotulo": "s"},
+        {"id": "j1", "tipo": "juncao", "pai": "v2", "x": 780, "y": 239}
+      ],
+      "fluxos": [
+        {"id": "f1", "de": {"elemento": "v2", "lado": "topo"}, "para": {"elemento": "e3", "lado": "topo"}},
+        {"id": "f2", "de": {"elemento": "e3", "lado": "direita"}, "para": {"elemento": "j2", "lado": "esquerda"}},
+        {"id": "f3", "de": {"elemento": "j2", "lado": "direita"}, "para": {"elemento": "e4", "lado": "esquerda"}},
+        {"id": "f4", "de": {"elemento": "j2", "lado": "topo"}, "para": {"elemento": "v3", "lado": "topo"}},
+        {"id": "f5", "de": {"elemento": "v3", "lado": "esquerda"}, "para": {"elemento": "j3", "lado": "esquerda"}},
+        {"id": "f6", "de": {"elemento": "j3", "lado": "topo"}, "para": {"elemento": "v4", "lado": "topo"}},
+        {"id": "f7", "de": {"elemento": "j3", "lado": "direita"}, "para": {"elemento": "v4", "lado": "esquerda"}},
+        {"id": "f8", "de": {"elemento": "v4", "lado": "direita"}, "para": {"elemento": "d2", "lado": "esquerda"}},
+        {"id": "f9", "de": {"elemento": "d2", "lado": "topo"}, "para": {"elemento": "e5", "lado": "esquerda"}, "rotulo": "s"},
+        {"id": "f10", "de": {"elemento": "d2", "lado": "baixo"}, "para": {"elemento": "e6", "lado": "esquerda"}, "rotulo": "n"},
+        {"id": "f11", "de": {"elemento": "e5", "lado": "direita"}, "para": {"elemento": "j4", "lado": "topo"}},
+        {"id": "f12", "de": {"elemento": "e6", "lado": "direita"}, "para": {"elemento": "j4", "lado": "baixo"}},
+        {"id": "f13", "de": {"elemento": "j4", "lado": "direita"}, "para": {"elemento": "v3", "lado": "direita"}},
+        {"id": "f14", "de": {"elemento": "v3", "lado": "direita"}, "para": {"elemento": "d1", "lado": "esquerda"}},
+        {"id": "f15", "de": {"elemento": "d1", "lado": "topo"}, "para": {"elemento": "e1", "lado": "esquerda"}, "rotulo": "s"},
+        {"id": "f16", "de": {"elemento": "d1", "lado": "baixo"}, "para": {"elemento": "e2", "lado": "esquerda"}, "rotulo": "n"},
+        {"id": "f17", "de": {"elemento": "e1", "lado": "direita"}, "para": {"elemento": "j1", "lado": "topo"}},
+        {"id": "f18", "de": {"elemento": "e2", "lado": "direita"}, "para": {"elemento": "j1", "lado": "baixo"}},
+        {"id": "f19", "de": {"elemento": "j1", "lado": "direita"}, "para": {"elemento": "v2", "lado": "direita"}}
+      ]
+    },
+    {
+      "id": "figura-10",
+      "titulo": "Figura 10: Não-autoaceitador? seria recursiva. Sem o Atalho.",
+      "elementos": [
+        {"id": "v1", "tipo": "virtual", "x": 20, "y": 20, "w": 580, "h": 300, "legenda": "Não-autoaceitador?"},
+        {"id": "j1", "tipo": "juncao", "pai": "v1", "x": 40, "y": 150},
+        {"id": "e1", "tipo": "estatico", "pai": "v1", "x": 92, "y": 138, "w": 44, "h": 34},
+        {"id": "v2", "tipo": "virtual", "pai": "v1", "x": 136, "y": 110, "w": 100, "h": 95},
+        {"id": "d1", "tipo": "decisao", "pai": "v1", "x": 330, "y": 133, "w": 52, "h": 48, "rotulo": "?"},
+        {"id": "e2", "tipo": "estatico", "pai": "v1", "x": 415, "y": 80, "w": 36, "h": 32, "rotulo": "n"},
+        {"id": "e3", "tipo": "estatico", "pai": "v1", "x": 415, "y": 205, "w": 36, "h": 32, "rotulo": "s"},
+        {"id": "j2", "tipo": "juncao", "pai": "v1", "x": 520, "y": 152}
+      ],
+      "fluxos": [
+        {"id": "f1", "de": {"elemento": "v1", "lado": "esquerda"}, "para": {"elemento": "j1", "lado": "esquerda"}},
+        {"id": "f2", "de": {"elemento": "j1", "lado": "topo"}, "para": {"elemento": "v2", "lado": "topo"}},
+        {"id": "f3", "de": {"elemento": "j1", "lado": "direita"}, "para": {"elemento": "e1", "lado": "esquerda"}},
+        {"id": "f4", "de": {"elemento": "v2", "lado": "direita"}, "para": {"elemento": "d1", "lado": "esquerda"}},
+        {"id": "f5", "de": {"elemento": "d1", "lado": "topo"}, "para": {"elemento": "e2", "lado": "esquerda"}, "rotulo": "s"},
+        {"id": "f6", "de": {"elemento": "d1", "lado": "baixo"}, "para": {"elemento": "e3", "lado": "esquerda"}, "rotulo": "n"},
+        {"id": "f7", "de": {"elemento": "e2", "lado": "direita"}, "para": {"elemento": "j2", "lado": "topo"}},
+        {"id": "f8", "de": {"elemento": "e3", "lado": "direita"}, "para": {"elemento": "j2", "lado": "baixo"}},
+        {"id": "f9", "de": {"elemento": "j2", "lado": "direita"}, "para": {"elemento": "v1", "lado": "direita"}}
+      ]
+    },
+    {
+      "id": "figura-11",
+      "titulo": "Figura 11: Não-autoaceitador? receberá o próprio código. Sem o Atalho.",
+      "elementos": [
+        {"id": "v1", "tipo": "virtual", "x": 187, "y": 20, "w": 640, "h": 320, "legenda": "Não-autoaceitador?"},
+        {"id": "e3", "tipo": "estatico", "x": 20, "y": 140, "w": 167, "h": 100, "rotulo": "Não-\nautoace\nitador"},
+        {"id": "j1", "tipo": "juncao", "pai": "v1", "x": 22, "y": 165},
+        {"id": "e4", "tipo": "estatico", "pai": "v1", "x": 52, "y": 135, "w": 106, "h": 70, "rotulo": "Não-\nautoace\nitador"},
+        {"id": "v2", "tipo": "virtual", "pai": "v1", "x": 158, "y": 95, "w": 170, "h": 130, "legenda": "Não-autoaceitador?"},
+        {"id": "d1", "tipo": "decisao", "pai": "v1", "x": 380, "y": 134, "w": 56, "h": 52, "rotulo": "?"},
+        {"id": "e1", "tipo": "estatico", "pai": "v1", "x": 470, "y": 77, "w": 40, "h": 34, "rotulo": "n"},
+        {"id": "e2", "tipo": "estatico", "pai": "v1", "x": 470, "y": 209, "w": 40, "h": 34, "rotulo": "s"},
+        {"id": "j2", "tipo": "juncao", "pai": "v1", "x": 580, "y": 155}
+      ],
+      "fluxos": [
+        {"id": "f1", "de": {"elemento": "v1", "lado": "topo"}, "para": {"elemento": "e3", "lado": "topo"}},
+        {"id": "f2", "de": {"elemento": "e3", "lado": "direita"}, "para": {"elemento": "j1", "lado": "esquerda"}},
+        {"id": "f3", "de": {"elemento": "j1", "lado": "direita"}, "para": {"elemento": "e4", "lado": "esquerda"}},
+        {"id": "f4", "de": {"elemento": "j1", "lado": "topo"}, "para": {"elemento": "v2", "lado": "topo"}},
+        {"id": "f5", "de": {"elemento": "v2", "lado": "direita"}, "para": {"elemento": "d1", "lado": "esquerda"}},
+        {"id": "f6", "de": {"elemento": "d1", "lado": "topo"}, "para": {"elemento": "e1", "lado": "esquerda"}, "rotulo": "s"},
+        {"id": "f7", "de": {"elemento": "d1", "lado": "baixo"}, "para": {"elemento": "e2", "lado": "esquerda"}, "rotulo": "n"},
+        {"id": "f8", "de": {"elemento": "e1", "lado": "direita"}, "para": {"elemento": "j2", "lado": "topo"}},
+        {"id": "f9", "de": {"elemento": "e2", "lado": "direita"}, "para": {"elemento": "j2", "lado": "baixo"}},
+        {"id": "f10", "de": {"elemento": "j2", "lado": "direita"}, "para": {"elemento": "v1", "lado": "direita"}}
+      ]
+    }
+  ]
 }

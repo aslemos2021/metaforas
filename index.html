@@ -11,17 +11,54 @@
 <body>
   <header>
     <h1>Metáforas</h1>
-    <p class="sub">Editor de diagramas para a notação de <cite>Metáforas para explicar a computação como ciência empírica</cite>. Por enquanto é um esqueleto: mostra as figuras do artigo a partir do formato do documento, mas ainda não edita.</p>
-    <label class="escolha">Diagrama <select id="diagramas"></select></label>
+    <p class="sub">Editor de diagramas para a notação de <cite>Metáforas para explicar a computação como ciência empírica</cite>. O trabalho fica guardado neste navegador; para levá-lo, salve o documento.</p>
   </header>
+
+  <nav class="barra" aria-label="Documento">
+    <div class="grupo">
+      <button type="button" id="novo" title="Documento novo, vazio (dá para desfazer)">Novo</button>
+      <button type="button" id="abrir" title="Abrir um .json, ou um SVG exportado por este editor">Abrir…</button>
+      <input type="file" id="arquivo" accept=".json,.svg,application/json,image/svg+xml" hidden>
+      <button type="button" id="salvar" title="Baixar o documento (.json)">Salvar</button>
+      <button type="button" id="exportar" title="Baixar este diagrama em SVG, com o documento dentro">Exportar SVG</button>
+      <button type="button" id="exemplos" title="Abrir as figuras do artigo (dá para desfazer)">Figuras do artigo</button>
+    </div>
+    <div class="grupo">
+      <button type="button" id="desfazer" title="Desfazer (Ctrl+Z)">Desfazer</button>
+      <button type="button" id="refazer" title="Refazer (Ctrl+Shift+Z)">Refazer</button>
+      <button type="button" id="apagar" title="Apagar o que está selecionado (Delete)">Apagar</button>
+    </div>
+    <label class="titulo-doc">Documento <input type="text" id="titulo-do-documento" placeholder="sem título"></label>
+  </nav>
+
+  <nav class="barra" aria-label="Diagramas">
+    <label class="escolha">Diagrama <select id="diagramas"></select></label>
+    <div class="grupo">
+      <button type="button" id="diagrama-novo" title="Diagrama novo, vazio, depois deste">+ Novo</button>
+      <button type="button" id="diagrama-duplicar" title="Cópia deste diagrama, logo depois dele (para o quadro seguinte)">Duplicar</button>
+      <button type="button" id="diagrama-antes" title="Levar para antes" aria-label="Levar para antes">↑</button>
+      <button type="button" id="diagrama-depois" title="Levar para depois" aria-label="Levar para depois">↓</button>
+      <button type="button" id="diagrama-apagar" title="Apagar este diagrama (dá para desfazer)">Apagar diagrama</button>
+    </div>
+    <label class="titulo-doc">Título <input type="text" id="titulo-do-diagrama" placeholder="Figura 1: …"></label>
+  </nav>
+
+  <nav class="paleta" aria-label="Paleta">
+    <span class="dica">Criar:</span>
+    <button type="button" data-tipo="estatico"><span class="icone estatico"></span>estático</button>
+    <button type="button" data-tipo="virtual"><span class="icone virtual"></span>virtual</button>
+    <button type="button" data-tipo="mecanico"><span class="icone mecanico"></span>mecânico</button>
+    <button type="button" data-tipo="decisao"><span class="icone decisao"></span>decisão</button>
+    <button type="button" data-tipo="juncao"><span class="icone juncao"></span>junção</button>
+    <button type="button" data-tipo="anotacao"><span class="icone anotacao">T</span>anotação</button>
+  </nav>
+
   <main>
     <figure>
       <div id="tela" aria-label="Diagrama"></div>
       <figcaption id="legenda-do-diagrama"></figcaption>
     </figure>
-    <aside id="inspetor" aria-live="polite">
-      <p class="dica">Clique num elemento ou num fluxo para ver a estrutura que o documento guarda sobre ele. <kbd>Esc</kbd> limpa a seleção.</p>
-    </aside>
+    <aside id="inspetor" aria-live="polite"></aside>
   </main>
   <footer id="estado">Carregando…</footer>
 </body>

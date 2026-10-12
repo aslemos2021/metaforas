@@ -44,3 +44,35 @@ preservação de campos desconhecidos (`formato.md`).
 Figuras 1, 2 (três quadros) e 4 a 8, convertidas do *Ensaio.pptx* por um script
 de rascunho e ajustadas à mão. Servem de exemplo e de teste do desenho. As
 Figuras 3 e 9 a 11 ficam para a v0 (a 9 tem reticências; a 10 e a 11, o Atalho).
+
+**2026-10-12 · Respostas sobre a notação** (André). A espessura do traço não
+tem significado. A cor do fluxo é decidida pelo destino: entra pela esquerda,
+vermelho (a entrada permanece entrada); por cima, azul (vira código); num
+componente preto sem nada dentro, preto (é incorporada). A seta pode ir em
+todos os fluxos. Um valor encostado vale por uma flecha (lateral, vermelha;
+no topo, azul); fica para depois. Sair pelo topo é o código da máquina tomado
+como valor. `-1` e `*` são mecânicos, de cantos retos. Detalhes e as perguntas
+que daí saíram em `notacao.md`.
+
+**2026-10-12 · Cor do fluxo, saída e figuras com o que está fora** (André).
+A junção é transparente: o que chega a ela tem a cor do que sai dela, e preto
+se os ramos discordam. O fluxo sem destinatário (a saída da máquina) não
+precisa existir; se existir, quem desenha escolhe a cor. O objeto vermelho que
+recebe a saída de um componente preto é materializado por ele: flecha preta.
+Reticências e Atalho são *ad hoc*, do artigo; voltam quando se pensar no
+funcionamento dos diagramas. O plano da v0 foi aprovado (está no `CLAUDE.md`).
+
+**2026-10-12 · Formato na versão 2** (Claude, a partir das respostas). A cor
+do fluxo passa a ser calculada (`corDoFluxo`); saem do documento `traco`,
+`seta` e o `registro` dos fluxos com destinatário. A migração 1 → 2 faz isso.
+O desenho omite a seta que chega a uma junção, porque o ponto já marca a
+chegada.
+
+**2026-10-12 · O editor edita; Figuras 3 e 9 a 11 nos exemplos** (Claude, no
+plano aprovado pelo André). Passos 1 a 8 da v0: edição sem tela
+(`src/edicao.js`), tela, paleta, inspetor que edita, vários diagramas, `.json`,
+cópia no navegador, SVG com o documento dentro. As Figuras 3 (três quadros) e
+9 a 11 foram escritas à mão em `exemplos/artigo.json`, sem as reticências (9),
+sem a pequena elipse com `...` (9) e sem o Atalho (10 e 11); o que estava dentro
+do Atalho subiu para a máquina que o continha. Os valores encostados (`x!`,
+`x`, `x-1`, o código em 9 e 11) continuam só posição.

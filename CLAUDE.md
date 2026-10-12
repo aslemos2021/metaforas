@@ -54,12 +54,15 @@ este arquivo.
 ```
 index.html, estilo.css   a página
 src/modelo.js            tipos (JSDoc), regras, validação, migração; não desenha
+src/edicao.js            operações de edição (documento -> documento novo) e histórico
 src/notacao.js           cores, traços, fontes e medidas da notação, num lugar só
 src/geometria.js         portas e rotas ortogonais dos fluxos; funções puras
 src/desenho.js           diagrama -> <svg>; sem estado
-src/inspetor.js          clique num elemento mostra a estrutura que o documento guarda
-src/main.js              liga tudo na página
-exemplos/artigo.json     Tabela 1 e Figuras 1, 2 e 4 a 8, para ver e para testar
+src/inspetor.js          mostra a estrutura do que está selecionado e edita os nomes
+src/tela.js              a tela de edição: selecionar, mover, aninhar, redimensionar, ligar, criar
+src/arquivo.js           .json, SVG exportado (com o documento dentro), cópia no navegador
+src/main.js              estado, histórico, barras, paleta e teclado
+exemplos/artigo.json     Tabela 1 e Figuras 1 a 11, para ver e para testar
 docs/                    notação, formato, decisões
 tests/                   unidades (node:test) e página (Playwright)
 ferramentas/servidor.mjs servidor local (módulos ES não abrem de file://)
@@ -83,18 +86,33 @@ ferramentas/servidor.mjs servidor local (módulos ES não abrem de file://)
 
 ## Estado
 
-O esqueleto mostra os exemplos e um inspetor, mas ainda não edita.
+O editor edita (passos 0 a 8 abaixo). Formato na versão 2, com a cor dos
+fluxos calculada pelo destino. Ao abrir, a página mostra o que está guardado no
+navegador; na primeira vez, as figuras do artigo.
 
-**Próximo: a v0.** Critério de aceite (André): redesenhar no editor a Tabela 1 e
-as Figuras 1 a 11, dentro da gramática confirmada; salvar o documento; exportar
-SVG. Um caminho possível, a combinar com ele:
+**Em curso: a v0.** Critério de aceite (André): redesenhar no editor a Tabela 1
+e as Figuras 1 a 11, dentro da gramática confirmada (as 9 a 11 sem reticências
+nem Atalho); salvar o documento; exportar SVG. Plano aprovado pelo André em
+12/10/2026; cada passo termina publicado e com testes:
 
-1. Paleta para criar elementos dos seis tipos; selecionar, mover (com os objetos
-   dentro) e redimensionar.
-2. Aninhar e desaninhar arrastando para dentro e para fora de uma interface.
-3. Ligar fluxos de um lado a outro; rótulos `s` e `n` nas saídas da decisão.
-4. Editar legenda, rótulo, texto; apagar; desfazer e refazer.
-5. Vários diagramas no documento.
-6. Abrir e salvar `.json`; guardar o trabalho no navegador para não perdê-lo.
-7. Exportar SVG (talvez com o documento embutido, para poder reabrir).
-8. Redesenhar as figuras com o editor; o que não couber vira pergunta.
+0. ~~Respostas do André na notação: cor calculada, formato v2, inspetor.~~
+1. ~~Núcleo de edição sem tela (`src/edicao.js`): criar, mover, redimensionar,
+   aninhar, desaninhar, ligar, renomear, apagar; histórico para desfazer e
+   refazer. Funções puras, que devolvem documento novo e válido.~~
+2. ~~Selecionar, mover (com os objetos dentro) e redimensionar com o mouse;
+   apagar; desfazer e refazer.~~
+3. ~~Paleta dos seis tipos; soltar dentro de um registro aninha, arrastar para
+   fora desaninha.~~
+4. ~~Fluxos: arrastar de um lado a outro; `s`/`n` na saída da decisão.~~
+5. ~~O inspetor edita: legenda, rótulo, texto, lados, cor do fluxo sem
+   destinatário.~~
+6. ~~Vários diagramas: criar, renomear, duplicar, reordenar, apagar.~~
+7. ~~Abrir e salvar `.json`; guardar no navegador.~~
+8. ~~Exportar SVG com o documento embutido (e reabrir o SVG).~~ Os passos 2 a
+   8 esperam a experiência do André no uso.
+9. Redesenhar a Tabela 1 e as Figuras 1 a 11 no editor; o que não couber vira
+   pergunta. As que faltavam (3, 9, 10, 11) já estão em `exemplos/artigo.json`,
+   escritas à mão; falta o André redesenhar no editor e dizer o que atrapalha.
+
+Fora da v0: pontos de passagem nas rotas (só com o André; se uma rota ficar
+ruim, melhora-se o cálculo), encostar como relação, grade, toque.

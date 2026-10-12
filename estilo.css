@@ -45,6 +45,7 @@ main {
 
 figure { margin: 0; min-width: 0; }
 #tela {
+  position: relative;
   background: var(--papel);
   border: 1px solid var(--borda);
   border-radius: 6px;
@@ -79,3 +80,57 @@ svg.diagrama .selecionado > .linha {
   filter: drop-shadow(0 0 2px var(--destaque)) drop-shadow(0 0 2px var(--destaque));
 }
 svg.diagrama .alvo { pointer-events: stroke; }
+
+/* barras e paleta */
+.barra, .paleta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  align-items: center;
+  margin-top: 10px;
+}
+.grupo { display: flex; flex-wrap: wrap; gap: 6px; }
+button {
+  font: inherit;
+  font-size: 0.92rem;
+  padding: 4px 10px;
+  border: 1px solid var(--borda);
+  border-radius: 4px;
+  background: var(--papel);
+  color: #1d1d1b;
+  cursor: pointer;
+}
+button:hover:not(:disabled) { border-color: var(--apagado); }
+button:disabled { opacity: 0.45; cursor: default; }
+button[aria-pressed="true"] { outline: 2px solid var(--destaque); outline-offset: 1px; }
+.titulo-doc { display: inline-flex; gap: 8px; align-items: center; font-weight: 600; flex: 1 1 220px; min-width: 0; }
+.titulo-doc input { flex: 1; min-width: 0; font: inherit; font-weight: normal; padding: 3px 6px; }
+.paleta button { display: inline-flex; align-items: center; gap: 6px; }
+.icone { display: inline-block; width: 18px; height: 12px; border: 2px solid; box-sizing: border-box; }
+.icone.estatico { border-color: #ff0000; border-radius: 50%; }
+.icone.virtual { border-color: #4472c4; border-radius: 4px; }
+.icone.mecanico { border-color: #000; }
+.icone.decisao { width: 11px; height: 11px; border-width: 1px; border-color: #000; transform: rotate(45deg); margin: 0 3px; }
+.icone.juncao { width: 8px; height: 8px; border: 0; background: #000; border-radius: 50%; margin: 0 5px; }
+.icone.anotacao { border: 0; width: auto; height: auto; font-family: Georgia, serif; font-weight: bold; }
+footer.erro { color: #b3261e; }
+
+/* edição no inspetor */
+#inspetor .campos { display: grid; gap: 8px; margin: 8px 0 12px; }
+#inspetor .campos label { display: grid; gap: 2px; font-size: 0.9rem; }
+#inspetor .campos span { color: var(--apagado); }
+#inspetor .campos input, #inspetor .campos textarea, #inspetor .campos select {
+  font: 0.95rem "Courier New", Courier, monospace; padding: 3px 6px; width: 100%;
+}
+
+/* camada de edição (não vai para o SVG exportado) */
+svg.editavel { touch-action: none; user-select: none; }
+svg.editavel.criando { cursor: crosshair; }
+svg.editavel.criando [data-id] { cursor: crosshair; }
+.sobreposicao .porta { fill: #fff; stroke: var(--destaque); stroke-width: 1.5; cursor: crosshair; vector-effect: non-scaling-stroke; }
+.sobreposicao .porta:hover, .sobreposicao .porta.escolhida { fill: var(--destaque); }
+.sobreposicao .alca { fill: var(--destaque); stroke: #fff; stroke-width: 1; vector-effect: non-scaling-stroke; }
+.sobreposicao .alca-nw, .sobreposicao .alca-se { cursor: nwse-resize; }
+.sobreposicao .alca-ne, .sobreposicao .alca-sw { cursor: nesw-resize; }
+.sobreposicao .destaque { fill: none; stroke: var(--destaque); stroke-width: 2; stroke-dasharray: 6 4; vector-effect: non-scaling-stroke; pointer-events: none; }
+.sobreposicao .elastico { stroke: var(--destaque); stroke-dasharray: 5 4; pointer-events: none; }

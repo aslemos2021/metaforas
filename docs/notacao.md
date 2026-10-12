@@ -75,7 +75,31 @@ Linha fina, de ângulos retos, com ponta de seta aberta. Liga um lado de um
 elemento a um lado de outro. Pode atravessar a borda de uma interface: a entrada
 chega pela borda esquerda da máquina e a saída sai pela direita.
 
-## Lado de entrada (regra da notação)
+Todo fluxo tem seta (André, 12/10/2026). No artigo, as linhas entre a decisão e
+`n`/`s` não têm; foi só uma opção ao escrever. O editor não desenha a seta que
+chega a uma junção, porque o ponto já marca a chegada.
+
+## Cor do fluxo (regra da notação)
+
+A cor concorda com o uso, e é o destino que decide (André, 12/10/2026):
+
+1. **Entra pela esquerda** do objeto de destino: a entrada permanece entrada,
+   **vermelho**.
+2. **Entra por cima**: a entrada se converte em código, **azul**.
+3. Entra num **componente preto sem nada dentro** (mecânico vazio, decisão): é
+   incorporada a ele, **preto**.
+4. Um **objeto vermelho recebe a saída de um componente preto**: está sendo
+   materializado por ele, **preto** (`-1` → `x-1`, decisão → `n`/`s`).
+5. A **junção** é transparente: o que chega a ela tem a cor do que sai dela;
+   se os ramos discordam, preto (Figuras 4, 5 e 8).
+6. **Sem destinatário** (o resultado que sai pela borda da máquina): a flecha não
+   precisa existir; se for desenhada, quem desenha escolhe a cor. Sem escolha,
+   preto.
+7. Nos demais casos (entrar por baixo ou pela direita), preto.
+
+A precedência é a da lista em `corDoFluxo` (`src/modelo.js`): 6, 5, 3, 4, 2, 1, 7.
+
+## Lado de entrada e de saída (regra da notação)
 
 Numa máquina virtual, o lado por onde se entra diz como se entra:
 
@@ -84,6 +108,27 @@ Numa máquina virtual, o lado por onde se entra diz como se entra:
 
 Figura 4: a máquina vazia recebe o mesmo código "simultaneamente como algoritmo e
 como entrada", por cima e pela esquerda.
+
+E o que **sai por cima** de uma máquina é o código da máquina, tomado como valor
+(Figura 8).
+
+## Encostar
+
+Um valor encostado num lado de outro objeto, sem linha (`ax?` na Figura 6, `x`
+no `*` do Fatorial), vale como se houvesse ali uma flecha: vermelha se o
+contato é lateral, azul se é com o topo. Por enquanto o editor o guarda só como
+posição; a representação sem flecha fica para depois.
+
+## Operadores
+
+`-1` e `*` são mecânicos, retângulos de cantos retos: a flecha de entrada quer
+dizer que o que for recebido será incorporado a eles (e pode ser jogado fora,
+ou aproveitado), que eles estão sendo acionados e vão produzir o comportamento
+esperado na sua saída.
+
+## Espessura
+
+Não tem significado. Todas as formas têm o mesmo traço.
 
 ## Anotações
 
@@ -100,6 +145,8 @@ Decisão do André, em 11 de outubro de 2026:
 - **Atalho** (roxo, com o sinal de proibido; Figuras 10 e 11): o sinal representa
   o "direito" que o Atalho tem de parar a computação. Fica para depois.
 - **Transformação** (a seta larga da Figura 1). Fica para depois.
+- Reticências e Atalho voltam quando se pensar no funcionamento dos diagramas
+  (André, 12/10/2026). Na v0, as Figuras 9 a 11 são redesenhadas sem eles.
 - **Sequências de quadros** (Figuras 2 e 3, e 4 a 9 em sequência): ficam para
   quando se pensar num executor, "que vai ser um desafio, por si só". Por
   enquanto, cada quadro é um diagrama.
@@ -109,30 +156,6 @@ Decisão do André, em 11 de outubro de 2026:
 
 ## Perguntas em aberto
 
-Saíram da leitura do *Ensaio.pptx*. Enquanto não houver resposta, o editor faz o
-que está entre parênteses, de um jeito fácil de mudar depois.
-
-1. **Espessura do traço.** Nos desenhos, as formas têm 3 pt, mas os `n` e `s`
-   dentro de Não-autoaceitadorRE? têm 1 pt; o `s` que sai na Figura 7 tem 3 pt. O
-   primeiro slide do Ensaio mostra cada forma em duas espessuras. A espessura quer
-   dizer alguma coisa (por exemplo, constante do algoritmo × valor em cena)?
-   (O editor aceita `"traco": "fino"` e não diz o que significa.)
-2. **Cor do fluxo.** As linhas são azuis quando entram ou saem pelo topo de uma
-   máquina virtual, vermelhas quando levam código como entrada (Figuras 4, 5 e 8)
-   e pretas no resto, inclusive quando `x-1` entra pela esquerda do Fatorial
-   interno. A cor diz o registro do que passa pela linha? (O editor guarda um
-   `registro` opcional no fluxo; sem ele, azul pelo topo de virtual, preto no resto.)
-3. **Pontas de seta.** As linhas que vão da decisão às constantes `n` e `s`, e daí
-   à junção, não têm seta; as outras têm. Isso tem sentido, ou é estilo?
-   (O editor aceita `"seta": false`.)
-4. **Encostar.** Às vezes um valor aparece encostado num lado da máquina, sem
-   linha: `ax?` na Figura 6, `s` na Figura 7, `x-1` no Fatorial. É uma relação (o
-   valor está na porta) que o editor deveria guardar, e que acompanharia a
-   máquina quando ela se move? (Por enquanto, é só posição.)
-5. **Saída pelo topo.** Na Figura 8, a linha azul sai do topo de
-   Não-autoaceitadorRE? e chega à elipse com o seu código. Sair pelo topo quer
-   dizer "o código da máquina, tomado como valor"? Se for, a regra do lado de
-   entrada ganha uma metade. (O inspetor só diz "sai por cima".)
-6. **Operadores.** No PowerPoint, `-1` e `*` do Fatorial são retângulos de cantos
-   levemente arredondados; no artigo parecem retos. O editor os desenha como
-   mecânicos (retos). Está certo?
+Nenhuma, por enquanto. As seis da leitura do *Ensaio.pptx* e as quatro que
+saíram das respostas foram respondidas em 12 de outubro de 2026; o que mudou
+está nas seções acima e em `decisoes.md`.

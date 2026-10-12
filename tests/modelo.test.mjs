@@ -3,7 +3,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import {
-  VERSAO, abrir, ancestrais, caixasAbsolutas, contem, migrar, novoDocumento, registroDoFluxo, validar,
+  VERSAO, abrir, ancestrais, caixasAbsolutas, contem, corDoFluxo, migrar, novoDocumento, registroDoFluxo, temDestinatario, validar,
 } from '../src/modelo.js';
 
 const exemplo = await readFile(new URL('../exemplos/artigo.json', import.meta.url), 'utf8');
@@ -23,7 +23,7 @@ function base() {
       ],
       fluxos: [
         { id: 'f1', de: { elemento: 'j', lado: 'topo' }, para: { elemento: 'dentro', lado: 'topo' } },
-        { id: 'f2', de: { elemento: 'j', lado: 'baixo' }, para: { elemento: 'dentro', lado: 'esquerda' }, registro: 'estatico' },
+        { id: 'f2', de: { elemento: 'j', lado: 'baixo' }, para: { elemento: 'dentro', lado: 'esquerda' } },
         { id: 'f3', de: { elemento: 'x', lado: 'direita' }, para: { elemento: 'j', lado: 'esquerda' } },
       ],
     }],
@@ -39,6 +39,12 @@ test('o documento de exemplo abre sem erros nem avisos', () => {
   assert.ok(documento);
   assert.ok(documento.diagramas.some((d) => d.id === 'tabela-1'));
   assert.ok(documento.diagramas.some((d) => d.id === 'figura-4'));
+});
+
+test('o exemplo tem a Tabela 1 e as Figuras 1 a 11', () => {
+  const { documento } = abrir(exemplo);
+  const ids = new Set(documento.diagramas.map((d) => d.id.replace(/[a-c]$/, '')));
+  for (const n of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]) assert.ok(ids.has(`figura-${n}`), `falta a Figura ${n}`);
 });
 
 test('a Tabela 1 tem as nove combinações de interface e objeto', () => {
@@ -157,10 +163,69 @@ test('ancestrais e contem seguem o aninhamento', () => {
   assert.ok(!contem(d, 'fora', 'x'));
 });
 
-test('registro do fluxo: o documento manda; senão, topo de virtual é azul', () => {
+test('cor do fluxo: o destino decide', () => {
   const d = base().diagramas[0];
   const [f1, f2, f3] = d.fluxos;
-  assert.equal(registroDoFluxo(d, f1), 'virtual'); // entra pelo topo de uma máquina virtual
-  assert.equal(registroDoFluxo(d, f2), 'estatico'); // dito no documento
-  assert.equal(registroDoFluxo(d, f3), 'mecanico'); // nos demais casos
+  assert.equal(registroDoFluxo(d, f1), 'virtual'); // entra por cima: vira código
+  assert.equal(registroDoFluxo(d, f2), 'estatico'); // entra pela esquerda: continua entrada
+  assert.equal(registroDoFluxo(d, f3), 'mecanico'); // chega à junção, cujos ramos discordam
+  d.fluxos.splice(0, 1);
+  assert.equal(registroDoFluxo(d, f3), 'estatico'); // a junção é transparente
+});
+
+test('cor do fluxo nas figuras do artigo', () => {
+  const { documento } = abrir(exemplo);
+  const cores = {
+    // f4: a saída de -1 entra pela esquerda do Fatorial interno
+    'figura-2a': { f1: 'mecanico', f3: 'mecanico', f4: 'estatico', f5: 'mecanico', f7: 'mecanico', f9: 'mecanico', f10: 'virtual' },
+    // f4 e f6: o vermelho é materializado pelo preto (-1, e a decisão através da junção)
+    'figura-2b': { f4: 'mecanico', f6: 'mecanico' },
+    'figura-4': { f1: 'mecanico', f2: 'estatico', f3: 'mecanico', f5: 'mecanico', f7: 'mecanico', f8: 'virtual' },
+    'figura-8': { f8: 'virtual', f9: 'mecanico', f6: 'estatico', f7: 'virtual' },
+  };
+  for (const [id, esperado] of Object.entries(cores)) {
+    const d = documento.diagramas.find((x) => x.id === id);
+    for (const [fid, reg] of Object.entries(esperado)) {
+      const f = d.fluxos.find((x) => x.id === fid);
+      assert.equal(registroDoFluxo(d, f), reg, `${id} ${fid}: ${corDoFluxo(d, f).motivo}`);
+    }
+  }
+});
+
+test('sem destinatário, a cor é escolha do documento', () => {
+  const d = base().diagramas[0];
+  const saida = { id: 's', de: { elemento: 'j', lado: 'direita' }, para: { elemento: 'fora', lado: 'direita' } };
+  d.fluxos.push(saida);
+  assert.ok(!temDestinatario(d, saida));
+  assert.equal(registroDoFluxo(d, saida), 'mecanico');
+  saida.registro = 'virtual';
+  assert.equal(registroDoFluxo(d, saida), 'virtual');
+});
+
+test('avisa do registro num fluxo que tem destinatário', () => {
+  const doc = base();
+  doc.diagramas[0].fluxos[0].registro = 'estatico';
+  const { erros, avisos } = validar(doc);
+  assert.deepEqual(erros, []);
+  assert.match(avisos.join('\n'), /registro é ignorado/);
+});
+
+test('migração 1 -> 2: saem traço, seta e o registro dos fluxos com destinatário', () => {
+  const v1 = base();
+  v1.versao = 1;
+  const d = v1.diagramas[0];
+  d.elementos[3].traco = 'fino';
+  d.fluxos[0].seta = false;
+  d.fluxos[1].registro = 'estatico';
+  d.fluxos.push({ id: 's', de: { elemento: 'j', lado: 'direita' }, para: { elemento: 'fora', lado: 'direita' }, registro: 'virtual', ideia: 'x' });
+  const { documento, erros, avisos } = abrir(JSON.stringify(v1));
+  assert.deepEqual(erros, []);
+  assert.deepEqual(avisos, []);
+  assert.equal(documento.versao, 2);
+  const [e3, f1, f2, s] = [documento.diagramas[0].elementos[3], ...documento.diagramas[0].fluxos.slice(0, 2), documento.diagramas[0].fluxos[3]];
+  assert.ok(!('traco' in e3));
+  assert.ok(!('seta' in f1));
+  assert.ok(!('registro' in f2));
+  assert.equal(s.registro, 'virtual'); // sem destinatário: fica
+  assert.equal(s.ideia, 'x');
 });
