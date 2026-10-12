@@ -1,0 +1,81 @@
+:root {
+  --fundo: #f4f3ef;
+  --papel: #ffffff;
+  --tinta: #1d1d1b;
+  --apagado: #5f5e58;
+  --borda: #d6d4cc;
+  --destaque: #e07b00;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fundo: #1b1b1a;
+    --tinta: #ecebe6;
+    --apagado: #a6a59e;
+    --borda: #3a3a37;
+    /* o papel do desenho continua branco: as cores da notação são para fundo claro */
+  }
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: var(--fundo);
+  color: var(--tinta);
+  font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  padding: 16px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+header h1 { margin: 0; font-size: 1.6rem; letter-spacing: 0.01em; }
+header .sub { margin: 4px 0 12px; color: var(--apagado); max-width: 70ch; }
+.escolha { display: inline-flex; gap: 8px; align-items: center; font-weight: 600; }
+select { font: inherit; padding: 4px 6px; max-width: 100%; }
+
+main {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 16px;
+  margin-top: 16px;
+}
+@media (max-width: 860px) {
+  main { grid-template-columns: minmax(0, 1fr); }
+}
+
+figure { margin: 0; min-width: 0; }
+#tela {
+  background: var(--papel);
+  border: 1px solid var(--borda);
+  border-radius: 6px;
+  padding: 8px;
+  overflow: auto;
+}
+#tela svg { display: block; width: 100%; height: auto; max-height: 78vh; }
+figcaption { color: var(--apagado); font-size: 0.92rem; margin-top: 6px; }
+
+#inspetor {
+  border: 1px solid var(--borda);
+  border-radius: 6px;
+  padding: 12px 14px;
+  align-self: start;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+#inspetor h2 { margin: 0; font-size: 1.1rem; text-transform: capitalize; }
+#inspetor .forma { margin: 0 0 8px; color: var(--apagado); font-size: 0.9rem; }
+#inspetor dl { margin: 0; display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 4px 10px; font-size: 0.92rem; }
+#inspetor dt { color: var(--apagado); }
+#inspetor dd { margin: 0; }
+.dica { color: var(--apagado); margin: 0; }
+kbd { border: 1px solid var(--borda); border-radius: 3px; padding: 0 4px; font-size: 0.85em; }
+
+footer { margin-top: 16px; color: var(--apagado); font-size: 0.85rem; }
+
+/* seleção no desenho (não vai para o SVG exportado) */
+svg.diagrama [data-id], svg.diagrama [data-fluxo] { cursor: pointer; }
+svg.diagrama .selecionado > .forma,
+svg.diagrama .selecionado > .linha {
+  filter: drop-shadow(0 0 2px var(--destaque)) drop-shadow(0 0 2px var(--destaque));
+}
+svg.diagrama .alvo { pointer-events: stroke; }

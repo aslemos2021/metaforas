@@ -1,0 +1,17 @@
+{
+  "name": "metaforas",
+  "private": true,
+  "description": "Editor de diagramas para a notação de Metáforas",
+  "license": "CC0-1.0",
+  "type": "module",
+  "scripts": {
+    "servir": "node ferramentas/servidor.mjs",
+    "verificar": "tsc -p tsconfig.json",
+    "testar": "node --test tests/*.test.mjs",
+    "pagina": "node tests/pagina.mjs",
+    "test": "npm run verificar && npm run testar && npm run pagina"
+  },
+  "devDependencies": {
+    "typescript": "^6.0.3"
+  }
+}

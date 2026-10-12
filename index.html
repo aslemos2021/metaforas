@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Metáforas · editor de diagramas</title>
+  <meta name="description" content="Editor de diagramas para a notação de Metáforas, de André Souza Lemos.">
+  <link rel="stylesheet" href="estilo.css">
+  <script type="module" src="src/main.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Metáforas</h1>
+    <p class="sub">Editor de diagramas para a notação de <cite>Metáforas para explicar a computação como ciência empírica</cite>. Por enquanto é um esqueleto: mostra as figuras do artigo a partir do formato do documento, mas ainda não edita.</p>
+    <label class="escolha">Diagrama <select id="diagramas"></select></label>
+  </header>
+  <main>
+    <figure>
+      <div id="tela" aria-label="Diagrama"></div>
+      <figcaption id="legenda-do-diagrama"></figcaption>
+    </figure>
+    <aside id="inspetor" aria-live="polite">
+      <p class="dica">Clique num elemento ou num fluxo para ver a estrutura que o documento guarda sobre ele. <kbd>Esc</kbd> limpa a seleção.</p>
+    </aside>
+  </main>
+  <footer id="estado">Carregando…</footer>
+</body>
+</html>
