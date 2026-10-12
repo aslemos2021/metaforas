@@ -4,7 +4,8 @@
  *
  * Os valores vêm dos desenhos originais, feitos no PowerPoint (Ensaio.pptx):
  * vermelho FF0000, azul 4472C4 (o "accent1" do tema do Office), preto;
- * traço de 3 pt nas formas, 1 pt nas formas finas e no losango;
+ * traço de 3 pt nas formas e 1 pt no losango (o original tem algumas formas
+ * com 1 pt, mas a espessura não tem significado);
  * Courier New em negrito para nomes. Uma unidade do SVG vale um ponto.
  * Os fluxos, que no original têm 0,5 pt, aqui têm 1, para não sumirem
  * na tela quando o desenho é reduzido.
@@ -26,7 +27,6 @@ export const NOME_DA_COR = /** @type {Record<Registro, string>} */ ({
 
 export const TRACO = {
   normal: 3,
-  fino: 1,
   decisao: 1,
   fluxo: 1,
 };

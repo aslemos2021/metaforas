@@ -5,7 +5,7 @@
  * entrada). Por enquanto só lê; a edição começa na v0.
  */
 import {
-  ENTRADA_EM_VIRTUAL, NOME_DO_TIPO, POR_ONDE, filhos, indexar, registroDoFluxo,
+  ENTRADA_EM_VIRTUAL, NOME_DO_TIPO, POR_ONDE, SAIDA_DE_VIRTUAL, corDoFluxo, filhos, indexar,
 } from './modelo.js';
 import { NOME_DA_COR } from './notacao.js';
 
@@ -43,7 +43,8 @@ export function ligarInspetor(svg, d, painel) {
   const lado = (p, sentido) => {
     const e = idx.get(p.elemento);
     const base = `${sentido} ${POR_ONDE[p.lado]}`;
-    const como = sentido === 'entra' && e?.tipo === 'virtual' ? ENTRADA_EM_VIRTUAL[p.lado] : undefined;
+    const como = e?.tipo !== 'virtual' ? undefined
+      : sentido === 'entra' ? ENTRADA_EM_VIRTUAL[p.lado] : SAIDA_DE_VIRTUAL[p.lado];
     return como ? `${base}, ${como}` : base;
   };
 
@@ -54,7 +55,6 @@ export function ligarInspetor(svg, d, painel) {
     if (e.legenda) item('legenda', esc(e.legenda));
     if (e.rotulo) item('rótulo', esc(e.rotulo));
     if (e.texto) item('texto', esc(e.texto));
-    if (e.traco) item('traço', e.traco);
     if (e.pai) item('interface', `${esc(nome(e.pai))}; este elemento é objeto dentro dela`);
     const objs = filhos(d, e.id);
     if (objs.length) item('objetos', objs.map((o) => esc(nome(o.id))).join('<br>'));
@@ -69,14 +69,13 @@ export function ligarInspetor(svg, d, painel) {
 
   /** @param {Fluxo} f */
   const descreveFluxo = (f) => {
-    const reg = registroDoFluxo(d, f, idx);
+    const { registro: reg, motivo } = corDoFluxo(d, f, idx);
     const linhas = ['<h2>fluxo</h2>', '<dl>'];
     const item = (/** @type {string} */ k, /** @type {string} */ v) => linhas.push(`<dt>${k}</dt><dd>${v}</dd>`);
     item('de', `${esc(nome(f.de.elemento))}; ${lado(f.de, 'sai')}`);
     item('para', `${esc(nome(f.para.elemento))}; ${lado(f.para, 'entra')}`);
-    item('registro', `${NOME_DO_TIPO[reg]} (${NOME_DA_COR[reg]}): ${f.registro ? 'dito no documento' : 'pela regra'}`);
+    item('cor', `${NOME_DA_COR[reg]} (${NOME_DO_TIPO[reg]}): ${esc(motivo)}`);
     if (f.rotulo) item('rótulo', esc(f.rotulo));
-    item('seta', f.seta === false ? 'não' : 'sim');
     item('id', `<code>${esc(f.id)}</code>`);
     linhas.push('</dl>');
     return linhas.join('');

@@ -84,7 +84,7 @@ export function desenharDiagrama(d, opcoes = {}) {
     const g = no('g', { ...estrutura, transform: `translate(${e.x} ${e.y})` }, pai);
     const titulo = [e.legenda, e.rotulo, e.texto].filter(Boolean).join(' · ');
     no('title', {}, g).textContent = `${NOME_DO_TIPO[e.tipo]}${titulo ? ` · ${titulo}` : ''}`;
-    const largura = e.traco === 'fino' ? TRACO.fino : TRACO.normal;
+    const largura = TRACO.normal;
     switch (e.tipo) {
       case 'estatico':
         no('ellipse', { class: 'forma', cx: w / 2, cy: h / 2, rx: w / 2, ry: h / 2, fill: '#fff', stroke: COR.estatico, 'stroke-width': largura }, g);
@@ -160,7 +160,8 @@ export function desenharDiagrama(d, opcoes = {}) {
     no('path', { class: 'alvo', 'data-auxiliar': '', d: caminho, fill: 'none', stroke: 'transparent', 'stroke-width': 10 }, g);
     no('path', {
       class: 'linha', d: caminho, fill: 'none', stroke: COR[reg], 'stroke-width': TRACO.fluxo,
-      ...(f.seta === false ? {} : { 'marker-end': `url(#${marcadores[reg]})` }),
+      // Na junção, o ponto já marca a chegada; a seta ficaria embolada nele.
+      ...(idx.get(f.para.elemento)?.tipo === 'juncao' ? {} : { 'marker-end': `url(#${marcadores[reg]})` }),
     }, g);
     if (f.rotulo && pts.length > 1) {
       const [a, b] = pts;

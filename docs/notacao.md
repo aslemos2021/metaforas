@@ -75,7 +75,31 @@ Linha fina, de ângulos retos, com ponta de seta aberta. Liga um lado de um
 elemento a um lado de outro. Pode atravessar a borda de uma interface: a entrada
 chega pela borda esquerda da máquina e a saída sai pela direita.
 
-## Lado de entrada (regra da notação)
+Todo fluxo tem seta (André, 12/10/2026). No artigo, as linhas entre a decisão e
+`n`/`s` não têm; foi só uma opção ao escrever. O editor não desenha a seta que
+chega a uma junção, porque o ponto já marca a chegada.
+
+## Cor do fluxo (regra da notação)
+
+A cor concorda com o uso, e é o destino que decide (André, 12/10/2026):
+
+1. **Entra pela esquerda** do objeto de destino: a entrada permanece entrada,
+   **vermelho**.
+2. **Entra por cima**: a entrada se converte em código, **azul**.
+3. Entra num **componente preto sem nada dentro** (mecânico vazio, decisão): é
+   incorporada a ele, **preto**.
+4. Um **objeto vermelho recebe a saída de um componente preto**: está sendo
+   materializado por ele, **preto** (`-1` → `x-1`, decisão → `n`/`s`).
+5. A **junção** é transparente: o que chega a ela tem a cor do que sai dela;
+   se os ramos discordam, preto (Figuras 4, 5 e 8).
+6. **Sem destinatário** (o resultado que sai pela borda da máquina): a flecha não
+   precisa existir; se for desenhada, quem desenha escolhe a cor. Sem escolha,
+   preto.
+7. Nos demais casos (entrar por baixo ou pela direita), preto.
+
+A precedência é a da lista em `corDoFluxo` (`src/modelo.js`): 6, 5, 3, 4, 2, 1, 7.
+
+## Lado de entrada e de saída (regra da notação)
 
 Numa máquina virtual, o lado por onde se entra diz como se entra:
 
@@ -84,6 +108,27 @@ Numa máquina virtual, o lado por onde se entra diz como se entra:
 
 Figura 4: a máquina vazia recebe o mesmo código "simultaneamente como algoritmo e
 como entrada", por cima e pela esquerda.
+
+E o que **sai por cima** de uma máquina é o código da máquina, tomado como valor
+(Figura 8).
+
+## Encostar
+
+Um valor encostado num lado de outro objeto, sem linha (`ax?` na Figura 6, `x`
+no `*` do Fatorial), vale como se houvesse ali uma flecha: vermelha se o
+contato é lateral, azul se é com o topo. Por enquanto o editor o guarda só como
+posição; a representação sem flecha fica para depois.
+
+## Operadores
+
+`-1` e `*` são mecânicos, retângulos de cantos retos: a flecha de entrada quer
+dizer que o que for recebido será incorporado a eles (e pode ser jogado fora,
+ou aproveitado), que eles estão sendo acionados e vão produzir o comportamento
+esperado na sua saída.
+
+## Espessura
+
+Não tem significado. Todas as formas têm o mesmo traço.
 
 ## Anotações
 
@@ -100,6 +145,8 @@ Decisão do André, em 11 de outubro de 2026:
 - **Atalho** (roxo, com o sinal de proibido; Figuras 10 e 11): o sinal representa
   o "direito" que o Atalho tem de parar a computação. Fica para depois.
 - **Transformação** (a seta larga da Figura 1). Fica para depois.
+- Reticências e Atalho voltam quando se pensar no funcionamento dos diagramas
+  (André, 12/10/2026). Na v0, as Figuras 9 a 11 são redesenhadas sem eles.
 - **Sequências de quadros** (Figuras 2 e 3, e 4 a 9 em sequência): ficam para
   quando se pensar num executor, "que vai ser um desafio, por si só". Por
   enquanto, cada quadro é um diagrama.
@@ -107,56 +154,8 @@ Decisão do André, em 11 de outubro de 2026:
   EnumeraA, event handler, o trapézio, o octógono roxo, formas mistas como o
   retângulo arredondado vermelho ou preto) são sugestões e ficam de fora.
 
-## Respostas de 12 de outubro de 2026
-
-O André respondeu às seis perguntas que saíram da leitura do *Ensaio.pptx*.
-O editor ainda faz o que fazia antes (entre parênteses, em cada uma); as
-mudanças entram no passo 0 do plano da v0.
-
-1. **Espessura do traço.** Não tem significado específico. (O editor aceita
-   `"traco": "fino"`.)
-2. **Cor do fluxo.** A cor concorda com o uso, e é o **destino** que decide:
-   - a conexão entra pela **esquerda** do objeto de destino: a entrada
-     permanece entrada, **vermelho**;
-   - entra **por cima**: a entrada se converte em código, **azul**;
-   - entra num **componente preto sem nada dentro**: é incorporada a ele,
-     **preto**.
-
-   (O editor guarda um `registro` opcional no fluxo; sem ele, azul pelo topo
-   de virtual, preto no resto.)
-3. **Pontas de seta.** A falta de seta entre a decisão e `n`/`s` foi só uma
-   opção ao escrever o artigo; a seta pode ser introduzida. (O editor aceita
-   `"seta": false`.)
-4. **Encostar.** Um valor encostado num lado de outro objeto, sem linha, vale
-   como se houvesse ali uma flecha: vermelha se o contato é lateral, azul se
-   é com o topo. A representação sem flecha pode ficar para depois, a não ser
-   que seja trivial. (Por enquanto, é só posição.)
-5. **Saída pelo topo.** Sim: o fluxo que sai pelo topo de uma máquina é o
-   código da máquina, tomado como valor (Figura 8).
-6. **Operadores.** `-1` e `*` são mecânicos, retângulos de cantos retos: a
-   flecha de entrada quer dizer que o que for recebido será incorporado a eles
-   (e pode ser jogado fora ou aproveitado), que eles estão sendo acionados e
-   vão produzir o comportamento esperado na sua saída.
-
 ## Perguntas em aberto
 
-Saíram das respostas acima, aplicadas às figuras.
-
-1. **Cor do fluxo que chega a uma junção.** A junção é preta e sem nada dentro,
-   mas não incorpora: só divide. Nas Figuras 4, 5 e 8, a entrada chega a uma
-   junção e se divide em duas, uma que entra por cima (azul) e outra pela
-   esquerda (vermelha). O trecho antes da junção tem que cor? (Proposta:
-   a junção é transparente; vale a cor do que sai dela, e preto se os ramos
-   discordarem.)
-2. **Cor do fluxo que sai da máquina.** O resultado que sai pela borda direita
-   da máquina (Fatorial, Não-autoaceitadorRE?) não entra em nenhum objeto.
-   Que cor? (Proposta: preto.)
-3. **A regra vale para qualquer destino?** Na Figura 2, a saída de `-1` entra
-   pela esquerda do Fatorial interno (primeiro quadro) e pela esquerda da
-   elipse `x-1` (segundo quadro); pela regra, as duas seriam vermelhas, mas no
-   artigo não são. É isso? E o que
-   chega a uma decisão (preta, sem nada dentro) é preto?
-4. **Figuras 9 a 11 na v0.** O critério da v0 pede as Figuras 1 a 11 dentro da
-   gramática confirmada, mas a 9 tem reticências e a 10 e a 11, o Atalho, que
-   estão fora. Redesenhamos sem eles (deixando o lugar vazio), ou o Atalho e as
-   reticências entram na v0?
+Nenhuma, por enquanto. As seis da leitura do *Ensaio.pptx* e as quatro que
+saíram das respostas foram respondidas em 12 de outubro de 2026; o que mudou
+está nas seções acima e em `decisoes.md`.

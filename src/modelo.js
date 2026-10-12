@@ -8,7 +8,7 @@
  */
 
 export const FORMATO = 'metaforas';
-export const VERSAO = 1;
+export const VERSAO = 2;
 
 /** @typedef {'estatico'|'virtual'|'mecanico'} Registro */
 /** @typedef {Registro|'decisao'|'juncao'|'anotacao'} Tipo */
@@ -33,7 +33,6 @@ export const LADOS = ['topo', 'esquerda', 'baixo', 'direita'];
  * @property {string} [legenda]  nome que só informa quem lê (Fatorial, M); vai no canto
  * @property {string} [rotulo]   nome que integra o objeto em cena (x, x-1, n, -1, ?); vai no centro
  * @property {string} [texto]    o texto de uma anotação
- * @property {'fino'} [traco]    traço fino (ver as perguntas em aberto em docs/notacao.md)
  */
 
 /**
@@ -48,8 +47,7 @@ export const LADOS = ['topo', 'esquerda', 'baixo', 'direita'];
  * @property {Ponta} de
  * @property {Ponta} para
  * @property {string} [rotulo]      s ou n, nas saídas de uma decisão
- * @property {Registro} [registro]  registro do que passa pelo fluxo; decide a cor
- * @property {boolean} [seta]       false quando o fluxo não tem ponta de seta
+ * @property {Registro} [registro]  cor escolhida, só para o fluxo sem destinatário (ver corDoFluxo)
  */
 
 /**
@@ -107,6 +105,14 @@ export const POR_ONDE = /** @type {Record<Lado, string>} */ ({
 export const ENTRADA_EM_VIRTUAL = {
   topo: 'como algoritmo',
   esquerda: 'como entrada',
+};
+
+/**
+ * O que quer dizer sair de uma máquina virtual por um lado.
+ * @type {Partial<Record<Lado, string>>}
+ */
+export const SAIDA_DE_VIRTUAL = {
+  topo: 'o código da máquina, tomado como valor',
 };
 
 /** @param {unknown} t @returns {t is Registro} */
@@ -186,17 +192,96 @@ export function caixasAbsolutas(d) {
 }
 
 /**
+ * Se o fluxo chega a alguém. Não chega quando termina na borda da sua própria
+ * interface, vista de dentro: é o resultado que sai da máquina.
+ * @param {Diagrama} d @param {Fluxo} f @param {Map<string, Elemento>} [idx]
+ */
+export function temDestinatario(d, f, idx = indexar(d)) {
+  return !contem(d, f.para.elemento, f.de.elemento, idx);
+}
+
+/**
+ * Componente preto sem nada dentro: o mecânico vazio e a decisão. O que entra
+ * nele é incorporado.
+ * @param {Diagrama} d @param {Elemento|undefined} e
+ */
+function pretoVazio(d, e) {
+  return !!e && (e.tipo === 'decisao' || (e.tipo === 'mecanico' && !filhos(d, e.id).length));
+}
+
+/**
+ * Se o que passa pelo fluxo vem de um componente preto sem nada dentro.
+ * A junção é transparente: vale o que chega a ela.
+ * @param {Diagrama} d @param {Ponta} de @param {Map<string, Elemento>} idx @param {Set<string>} vistos
+ * @returns {boolean}
+ */
+function vemDePreto(d, de, idx, vistos) {
+  const e = idx.get(de.elemento);
+  if (e?.tipo !== 'juncao') return pretoVazio(d, e);
+  if (vistos.has(e.id)) return false;
+  vistos.add(e.id);
+  const chegam = d.fluxos.filter((g) => g.para.elemento === e.id);
+  return chegam.length > 0 && chegam.every((g) => vemDePreto(d, g.de, idx, vistos));
+}
+
+/**
+ * A cor de um fluxo, dada pelo registro, e o porquê. A cor concorda com o
+ * uso, e é o destino que decide (André, 12/10/2026; docs/notacao.md):
+ *
+ * 1. sem destinatário (o resultado que sai pela borda da máquina): a cor que
+ *    o documento escolher, ou preto;
+ * 2. chega a uma junção: a junção é transparente, vale a cor do que sai dela;
+ *    preto se os ramos discordarem;
+ * 3. chega a um componente preto sem nada dentro: é incorporado, preto;
+ * 4. um objeto vermelho recebe a saída de um componente preto: é materializado
+ *    por ele, preto;
+ * 5. entra por cima: vira código, azul;
+ * 6. entra pela esquerda: continua entrada, vermelho;
+ * 7. nos demais casos, preto.
+ *
+ * @param {Diagrama} d @param {Fluxo} f @param {Map<string, Elemento>} [idx]
+ * @returns {{registro: Registro, motivo: string}}
+ */
+export function corDoFluxo(d, f, idx = indexar(d)) {
+  return cor(d, f, idx, new Set());
+}
+
+/**
+ * @param {Diagrama} d @param {Fluxo} f @param {Map<string, Elemento>} idx @param {Set<string>} vistos
+ * @returns {{registro: Registro, motivo: string}}
+ */
+function cor(d, f, idx, vistos) {
+  if (!temDestinatario(d, f, idx)) {
+    return f.registro
+      ? { registro: f.registro, motivo: 'sem destinatário; cor escolhida no documento' }
+      : { registro: 'mecanico', motivo: 'sem destinatário; preto, se o documento não escolhe outra' };
+  }
+  const destino = idx.get(f.para.elemento);
+  if (destino?.tipo === 'juncao') {
+    if (vistos.has(destino.id)) return { registro: 'mecanico', motivo: 'junções em ciclo' };
+    vistos.add(destino.id);
+    const ramos = d.fluxos.filter((g) => g.de.elemento === destino.id).map((g) => cor(d, g, idx, vistos).registro);
+    if (ramos.length && ramos.every((r) => r === ramos[0])) {
+      return { registro: ramos[0], motivo: 'passa pela junção; vale a cor do que sai dela' };
+    }
+    return { registro: 'mecanico', motivo: ramos.length ? 'na junção, os ramos discordam' : 'junção sem saída' };
+  }
+  if (pretoVazio(d, destino)) return { registro: 'mecanico', motivo: 'é incorporado a um componente preto' };
+  if (destino?.tipo === 'estatico' && vemDePreto(d, f.de, idx, new Set())) {
+    return { registro: 'mecanico', motivo: 'é materializado pelo componente preto de onde sai' };
+  }
+  if (f.para.lado === 'topo') return { registro: 'virtual', motivo: 'entra por cima; vira código' };
+  if (f.para.lado === 'esquerda') return { registro: 'estatico', motivo: 'entra pela esquerda; continua entrada' };
+  return { registro: 'mecanico', motivo: `entra ${POR_ONDE[f.para.lado]}` };
+}
+
+/**
  * O registro do que passa por um fluxo, que decide a sua cor.
- * Se o documento não diz, vale a regra: azul (virtual) quando o fluxo entra
- * ou sai pelo topo de uma máquina virtual; preto (mecânico) nos demais casos.
  * @param {Diagrama} d @param {Fluxo} f @param {Map<string, Elemento>} [idx]
  * @returns {Registro}
  */
 export function registroDoFluxo(d, f, idx = indexar(d)) {
-  if (f.registro) return f.registro;
-  /** @param {Ponta} p */
-  const topoDeVirtual = (p) => p.lado === 'topo' && idx.get(p.elemento)?.tipo === 'virtual';
-  return topoDeVirtual(f.de) || topoDeVirtual(f.para) ? 'virtual' : 'mecanico';
+  return corDoFluxo(d, f, idx).registro;
 }
 
 /** @param {string} [titulo] @returns {Documento} */
@@ -212,10 +297,37 @@ export function novoDocumento(titulo = 'Sem título') {
 /**
  * Migrações: MIGRACOES[n] leva um documento da versão n para a n+1.
  * Cada migração recebe e devolve o objeto lido do JSON e preserva os campos
- * que não conhece. Ainda não há nenhuma: o formato está na versão 1.
+ * que não conhece.
  * @type {Record<number, (doc: any) => any>}
  */
-const MIGRACOES = {};
+const MIGRACOES = {
+  // 1 -> 2 (respostas do André, 12/10/2026): a espessura do traço não tem
+  // significado, a seta vai em todos os fluxos, e a cor do fluxo passa a ser
+  // calculada pelo destino. Saem "traco", "seta" e o "registro" dos fluxos que
+  // têm destinatário; fica o registro do fluxo sem destinatário, que é escolha.
+  1: (doc) => {
+    const novo = { ...doc, versao: 2 };
+    if (Array.isArray(doc.diagramas)) {
+      novo.diagramas = doc.diagramas.map((/** @type {any} */ d) => {
+        if (!Array.isArray(d?.elementos) || !Array.isArray(d?.fluxos)) return d;
+        const elementos = d.elementos.map((/** @type {any} */ e) => {
+          const { traco, ...resto } = e ?? {};
+          return resto;
+        });
+        const semRegistro = { ...d, elementos };
+        const fluxos = d.fluxos.map((/** @type {any} */ f) => {
+          const { seta, ...resto } = f ?? {};
+          if (resto.registro !== undefined && resto.de && resto.para && temDestinatario(semRegistro, resto)) {
+            delete resto.registro;
+          }
+          return resto;
+        });
+        return { ...d, elementos, fluxos };
+      });
+    }
+    return novo;
+  },
+};
 
 /**
  * Traz um objeto lido de um arquivo para a versão atual do formato.
@@ -291,7 +403,6 @@ function validarDiagrama(d, onde, erros, avisos) {
     for (const k of /** @type {const} */ (['legenda', 'rotulo', 'texto'])) {
       if (e?.[k] !== undefined && typeof e[k] !== 'string') erros.push(`${aqui}: ${k} precisa ser texto`);
     }
-    if (e?.traco !== undefined && e.traco !== 'fino') erros.push(`${aqui}: traco só pode ser "fino"`);
   }
   const idx = indexar(d);
   for (const e of d.elementos) {
@@ -344,8 +455,14 @@ function validarDiagrama(d, onde, erros, avisos) {
       erros.push(`${aqui}: começa e termina no mesmo lado do mesmo elemento`);
     }
     if (f?.registro !== undefined && !ehRegistro(f.registro)) erros.push(`${aqui}: registro desconhecido "${f.registro}"`);
-    if (f?.seta !== undefined && typeof f.seta !== 'boolean') erros.push(`${aqui}: seta precisa ser true ou false`);
     if (f?.rotulo !== undefined && typeof f.rotulo !== 'string') erros.push(`${aqui}: rotulo precisa ser texto`);
+  }
+  if (!erros.length) {
+    for (const f of d.fluxos) {
+      if (f.registro !== undefined && temDestinatario(d, f, idx)) {
+        avisos.push(`${onde}, fluxo ${f.id}: tem destinatário, e a cor vem do destino; o registro é ignorado`);
+      }
+    }
   }
 }
 

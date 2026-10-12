@@ -11,7 +11,7 @@ const aqui = path.dirname(fileURLToPath(import.meta.url));
 const capturas = path.join(aqui, 'capturas');
 
 async function carregarPlaywright() {
-  for (const alvo of ['playwright', '/opt/npm-tools/node_modules/playwright/index.mjs']) {
+  for (const alvo of ['playwright', '/opt/npm-tools/node_modules/playwright/index.mjs', '/opt/node-tools/node_modules/playwright/index.mjs']) {
     try { return await import(alvo); } catch { /* tenta o próximo */ }
   }
   console.error('Playwright não encontrado. Instale com: npm i -D playwright && npx playwright install chromium');
@@ -96,7 +96,7 @@ await confere('um clique na linha seleciona o fluxo (Figura 8)', async () => {
   });
   await aba.mouse.click(ponto.x, ponto.y);
   const texto = await aba.textContent('#inspetor');
-  if (!/fluxo/.test(texto) || !/sai por cima/.test(texto) || !/pela regra/.test(texto)) throw new Error(texto);
+  if (!/fluxo/.test(texto) || !/sai por cima, o código da máquina/.test(texto) || !/azul/.test(texto)) throw new Error(texto);
 });
 
 await confere('sem rolagem horizontal a 390 px', async () => {

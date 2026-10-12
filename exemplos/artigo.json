@@ -1,6 +1,6 @@
 {
  "formato": "metaforas",
- "versao": 1,
+ "versao": 2,
  "titulo": "Figuras de Metáforas (Tabela 1, Figuras 1, 2 e 4 a 8)",
  "descricao": "Convertidas do Ensaio.pptx por um script de rascunho e ajustadas à mão. Servem de exemplo e de teste.",
  "diagramas": [
@@ -65,8 +65,8 @@
     {"id": "j2", "tipo": "juncao", "pai": "v1", "x": 645, "y": 261}
    ],
    "fluxos": [
-    {"id": "f1", "de": {"elemento": "d1", "lado": "topo"}, "para": {"elemento": "j1", "lado": "esquerda"}, "rotulo": "n", "seta": false},
-    {"id": "f2", "de": {"elemento": "d1", "lado": "baixo"}, "para": {"elemento": "j2", "lado": "baixo"}, "rotulo": "s", "seta": false},
+    {"id": "f1", "de": {"elemento": "d1", "lado": "topo"}, "para": {"elemento": "j1", "lado": "esquerda"}, "rotulo": "n"},
+    {"id": "f2", "de": {"elemento": "d1", "lado": "baixo"}, "para": {"elemento": "j2", "lado": "baixo"}, "rotulo": "s"},
     {"id": "f3", "de": {"elemento": "e1", "lado": "direita"}, "para": {"elemento": "d1", "lado": "esquerda"}},
     {"id": "f4", "de": {"elemento": "m1", "lado": "direita"}, "para": {"elemento": "v2", "lado": "esquerda"}},
     {"id": "f5", "de": {"elemento": "j1", "lado": "direita"}, "para": {"elemento": "m1", "lado": "esquerda"}},
@@ -93,8 +93,8 @@
     {"id": "a2", "tipo": "anotacao", "pai": "v1", "x": 573, "y": 353, "w": 101, "h": 40, "texto": "(x>1)"}
    ],
    "fluxos": [
-    {"id": "f1", "de": {"elemento": "d1", "lado": "topo"}, "para": {"elemento": "j1", "lado": "esquerda"}, "rotulo": "n", "seta": false},
-    {"id": "f2", "de": {"elemento": "d1", "lado": "baixo"}, "para": {"elemento": "j2", "lado": "baixo"}, "rotulo": "s", "seta": false},
+    {"id": "f1", "de": {"elemento": "d1", "lado": "topo"}, "para": {"elemento": "j1", "lado": "esquerda"}, "rotulo": "n"},
+    {"id": "f2", "de": {"elemento": "d1", "lado": "baixo"}, "para": {"elemento": "j2", "lado": "baixo"}, "rotulo": "s"},
     {"id": "f3", "de": {"elemento": "v1", "lado": "esquerda"}, "para": {"elemento": "d1", "lado": "esquerda"}},
     {"id": "f4", "de": {"elemento": "m1", "lado": "direita"}, "para": {"elemento": "e1", "lado": "esquerda"}},
     {"id": "f5", "de": {"elemento": "j1", "lado": "direita"}, "para": {"elemento": "m1", "lado": "esquerda"}},
@@ -125,8 +125,8 @@
     {"id": "e2", "tipo": "estatico", "pai": "v1", "x": 664, "y": 344, "w": 65, "h": 52, "rotulo": "x"}
    ],
    "fluxos": [
-    {"id": "f1", "de": {"elemento": "d1", "lado": "topo"}, "para": {"elemento": "j1", "lado": "esquerda"}, "rotulo": "n", "seta": false},
-    {"id": "f2", "de": {"elemento": "d1", "lado": "baixo"}, "para": {"elemento": "j2", "lado": "baixo"}, "rotulo": "s", "seta": false},
+    {"id": "f1", "de": {"elemento": "d1", "lado": "topo"}, "para": {"elemento": "j1", "lado": "esquerda"}, "rotulo": "n"},
+    {"id": "f2", "de": {"elemento": "d1", "lado": "baixo"}, "para": {"elemento": "j2", "lado": "baixo"}, "rotulo": "s"},
     {"id": "f3", "de": {"elemento": "v1", "lado": "esquerda"}, "para": {"elemento": "d1", "lado": "esquerda"}},
     {"id": "f4", "de": {"elemento": "m1", "lado": "direita"}, "para": {"elemento": "e1", "lado": "esquerda"}},
     {"id": "f5", "de": {"elemento": "j1", "lado": "direita"}, "para": {"elemento": "m1", "lado": "esquerda"}},
@@ -134,8 +134,8 @@
     {"id": "f7", "de": {"elemento": "v2", "lado": "direita"}, "para": {"elemento": "m2", "lado": "topo"}},
     {"id": "f8", "de": {"elemento": "m2", "lado": "direita"}, "para": {"elemento": "j2", "lado": "esquerda"}},
     {"id": "f9", "de": {"elemento": "j2", "lado": "direita"}, "para": {"elemento": "v1", "lado": "direita"}},
-    {"id": "f10", "de": {"elemento": "d2", "lado": "topo"}, "para": {"elemento": "j3", "lado": "esquerda"}, "rotulo": "n", "seta": false},
-    {"id": "f11", "de": {"elemento": "d2", "lado": "baixo"}, "para": {"elemento": "j4", "lado": "baixo"}, "rotulo": "s", "seta": false},
+    {"id": "f10", "de": {"elemento": "d2", "lado": "topo"}, "para": {"elemento": "j3", "lado": "esquerda"}, "rotulo": "n"},
+    {"id": "f11", "de": {"elemento": "d2", "lado": "baixo"}, "para": {"elemento": "j4", "lado": "baixo"}, "rotulo": "s"},
     {"id": "f12", "de": {"elemento": "e1", "lado": "direita"}, "para": {"elemento": "d2", "lado": "esquerda"}},
     {"id": "f13", "de": {"elemento": "m3", "lado": "direita"}, "para": {"elemento": "v3", "lado": "esquerda"}},
     {"id": "f14", "de": {"elemento": "j3", "lado": "direita"}, "para": {"elemento": "m3", "lado": "esquerda"}},
@@ -154,17 +154,17 @@
     {"id": "v1", "tipo": "virtual", "pai": "v2", "x": 116, "y": 133, "w": 291, "h": 260},
     {"id": "j1", "tipo": "juncao", "pai": "v2", "x": 59, "y": 229},
     {"id": "d1", "tipo": "decisao", "pai": "v2", "x": 407, "y": 233, "w": 68, "h": 61, "rotulo": "?"},
-    {"id": "e1", "tipo": "estatico", "pai": "v2", "x": 491, "y": 166, "w": 45, "h": 43, "rotulo": "n", "traco": "fino"},
-    {"id": "e2", "tipo": "estatico", "pai": "v2", "x": 491, "y": 315, "w": 45, "h": 43, "rotulo": "s", "traco": "fino"},
+    {"id": "e1", "tipo": "estatico", "pai": "v2", "x": 491, "y": 166, "w": 45, "h": 43, "rotulo": "n"},
+    {"id": "e2", "tipo": "estatico", "pai": "v2", "x": 491, "y": 315, "w": 45, "h": 43, "rotulo": "s"},
     {"id": "j2", "tipo": "juncao", "pai": "v2", "x": 649, "y": 258}
    ],
    "fluxos": [
-    {"id": "f1", "de": {"elemento": "v2", "lado": "esquerda"}, "para": {"elemento": "j1", "lado": "esquerda"}, "seta": false},
-    {"id": "f2", "de": {"elemento": "j1", "lado": "baixo"}, "para": {"elemento": "v1", "lado": "esquerda"}, "registro": "estatico"},
-    {"id": "f3", "de": {"elemento": "d1", "lado": "topo"}, "para": {"elemento": "e1", "lado": "esquerda"}, "rotulo": "s", "seta": false},
-    {"id": "f4", "de": {"elemento": "d1", "lado": "baixo"}, "para": {"elemento": "e2", "lado": "esquerda"}, "rotulo": "n", "seta": false},
-    {"id": "f5", "de": {"elemento": "e2", "lado": "direita"}, "para": {"elemento": "j2", "lado": "baixo"}, "seta": false},
-    {"id": "f6", "de": {"elemento": "e1", "lado": "direita"}, "para": {"elemento": "j2", "lado": "topo"}, "seta": false},
+    {"id": "f1", "de": {"elemento": "v2", "lado": "esquerda"}, "para": {"elemento": "j1", "lado": "esquerda"}},
+    {"id": "f2", "de": {"elemento": "j1", "lado": "baixo"}, "para": {"elemento": "v1", "lado": "esquerda"}},
+    {"id": "f3", "de": {"elemento": "d1", "lado": "topo"}, "para": {"elemento": "e1", "lado": "esquerda"}, "rotulo": "s"},
+    {"id": "f4", "de": {"elemento": "d1", "lado": "baixo"}, "para": {"elemento": "e2", "lado": "esquerda"}, "rotulo": "n"},
+    {"id": "f5", "de": {"elemento": "e2", "lado": "direita"}, "para": {"elemento": "j2", "lado": "baixo"}},
+    {"id": "f6", "de": {"elemento": "e1", "lado": "direita"}, "para": {"elemento": "j2", "lado": "topo"}},
     {"id": "f7", "de": {"elemento": "j2", "lado": "direita"}, "para": {"elemento": "v2", "lado": "direita"}},
     {"id": "f8", "de": {"elemento": "j1", "lado": "topo"}, "para": {"elemento": "v1", "lado": "topo"}}
    ]
@@ -177,18 +177,18 @@
     {"id": "v1", "tipo": "virtual", "pai": "v2", "x": 116, "y": 133, "w": 291, "h": 260},
     {"id": "j1", "tipo": "juncao", "pai": "v2", "x": 59, "y": 229},
     {"id": "d1", "tipo": "decisao", "pai": "v2", "x": 407, "y": 233, "w": 68, "h": 61, "rotulo": "?"},
-    {"id": "e1", "tipo": "estatico", "pai": "v2", "x": 491, "y": 166, "w": 45, "h": 43, "rotulo": "n", "traco": "fino"},
-    {"id": "e2", "tipo": "estatico", "pai": "v2", "x": 491, "y": 315, "w": 45, "h": 43, "rotulo": "s", "traco": "fino"},
+    {"id": "e1", "tipo": "estatico", "pai": "v2", "x": 491, "y": 166, "w": 45, "h": 43, "rotulo": "n"},
+    {"id": "e2", "tipo": "estatico", "pai": "v2", "x": 491, "y": 315, "w": 45, "h": 43, "rotulo": "s"},
     {"id": "j2", "tipo": "juncao", "pai": "v2", "x": 649, "y": 258},
     {"id": "e3", "tipo": "estatico", "x": 20, "y": 211, "w": 101, "h": 87, "rotulo": "ax?"}
    ],
    "fluxos": [
-    {"id": "f1", "de": {"elemento": "e3", "lado": "direita"}, "para": {"elemento": "j1", "lado": "esquerda"}, "registro": "estatico"},
-    {"id": "f2", "de": {"elemento": "j1", "lado": "baixo"}, "para": {"elemento": "v1", "lado": "esquerda"}, "registro": "estatico"},
-    {"id": "f3", "de": {"elemento": "d1", "lado": "topo"}, "para": {"elemento": "e1", "lado": "esquerda"}, "rotulo": "s", "seta": false},
-    {"id": "f4", "de": {"elemento": "d1", "lado": "baixo"}, "para": {"elemento": "e2", "lado": "esquerda"}, "rotulo": "n", "seta": false},
-    {"id": "f5", "de": {"elemento": "e2", "lado": "direita"}, "para": {"elemento": "j2", "lado": "baixo"}, "seta": false},
-    {"id": "f6", "de": {"elemento": "e1", "lado": "direita"}, "para": {"elemento": "j2", "lado": "topo"}, "seta": false},
+    {"id": "f1", "de": {"elemento": "e3", "lado": "direita"}, "para": {"elemento": "j1", "lado": "esquerda"}},
+    {"id": "f2", "de": {"elemento": "j1", "lado": "baixo"}, "para": {"elemento": "v1", "lado": "esquerda"}},
+    {"id": "f3", "de": {"elemento": "d1", "lado": "topo"}, "para": {"elemento": "e1", "lado": "esquerda"}, "rotulo": "s"},
+    {"id": "f4", "de": {"elemento": "d1", "lado": "baixo"}, "para": {"elemento": "e2", "lado": "esquerda"}, "rotulo": "n"},
+    {"id": "f5", "de": {"elemento": "e2", "lado": "direita"}, "para": {"elemento": "j2", "lado": "baixo"}},
+    {"id": "f6", "de": {"elemento": "e1", "lado": "direita"}, "para": {"elemento": "j2", "lado": "topo"}},
     {"id": "f7", "de": {"elemento": "j2", "lado": "direita"}, "para": {"elemento": "v2", "lado": "direita"}},
     {"id": "f8", "de": {"elemento": "j1", "lado": "topo"}, "para": {"elemento": "v1", "lado": "topo"}}
    ]
@@ -200,16 +200,16 @@
     {"id": "v2", "tipo": "virtual", "x": 20, "y": 20, "w": 748, "h": 460, "legenda": "Não-autoaceitadorRE?"},
     {"id": "v1", "tipo": "virtual", "pai": "v2", "x": 116, "y": 133, "w": 291, "h": 260, "legenda": "ax?"},
     {"id": "d1", "tipo": "decisao", "pai": "v2", "x": 407, "y": 233, "w": 68, "h": 61, "rotulo": "?"},
-    {"id": "e1", "tipo": "estatico", "pai": "v2", "x": 491, "y": 166, "w": 45, "h": 43, "rotulo": "n", "traco": "fino"},
-    {"id": "e2", "tipo": "estatico", "pai": "v2", "x": 491, "y": 315, "w": 45, "h": 43, "rotulo": "s", "traco": "fino"},
+    {"id": "e1", "tipo": "estatico", "pai": "v2", "x": 491, "y": 166, "w": 45, "h": 43, "rotulo": "n"},
+    {"id": "e2", "tipo": "estatico", "pai": "v2", "x": 491, "y": 315, "w": 45, "h": 43, "rotulo": "s"},
     {"id": "j1", "tipo": "juncao", "pai": "v2", "x": 649, "y": 258},
     {"id": "e3", "tipo": "estatico", "pai": "v2", "x": 15, "y": 216, "w": 101, "h": 87, "rotulo": "ax?"}
    ],
    "fluxos": [
-    {"id": "f1", "de": {"elemento": "d1", "lado": "topo"}, "para": {"elemento": "e1", "lado": "esquerda"}, "rotulo": "s", "seta": false},
-    {"id": "f2", "de": {"elemento": "d1", "lado": "baixo"}, "para": {"elemento": "e2", "lado": "esquerda"}, "rotulo": "n", "seta": false},
-    {"id": "f3", "de": {"elemento": "e2", "lado": "direita"}, "para": {"elemento": "j1", "lado": "baixo"}, "seta": false},
-    {"id": "f4", "de": {"elemento": "e1", "lado": "direita"}, "para": {"elemento": "j1", "lado": "topo"}, "seta": false},
+    {"id": "f1", "de": {"elemento": "d1", "lado": "topo"}, "para": {"elemento": "e1", "lado": "esquerda"}, "rotulo": "s"},
+    {"id": "f2", "de": {"elemento": "d1", "lado": "baixo"}, "para": {"elemento": "e2", "lado": "esquerda"}, "rotulo": "n"},
+    {"id": "f3", "de": {"elemento": "e2", "lado": "direita"}, "para": {"elemento": "j1", "lado": "baixo"}},
+    {"id": "f4", "de": {"elemento": "e1", "lado": "direita"}, "para": {"elemento": "j1", "lado": "topo"}},
     {"id": "f5", "de": {"elemento": "j1", "lado": "direita"}, "para": {"elemento": "v2", "lado": "direita"}}
    ]
   },
@@ -221,15 +221,15 @@
     {"id": "v2", "tipo": "virtual", "x": 20, "y": 20, "w": 748, "h": 460, "legenda": "Não-autoaceitadorRE?"},
     {"id": "v1", "tipo": "virtual", "pai": "v2", "x": 116, "y": 133, "w": 291, "h": 260, "legenda": "ax?"},
     {"id": "d1", "tipo": "decisao", "pai": "v2", "x": 407, "y": 233, "w": 68, "h": 61, "rotulo": "?"},
-    {"id": "e2", "tipo": "estatico", "pai": "v2", "x": 491, "y": 166, "w": 45, "h": 43, "rotulo": "n", "traco": "fino"},
-    {"id": "e3", "tipo": "estatico", "pai": "v2", "x": 491, "y": 315, "w": 45, "h": 43, "rotulo": "s", "traco": "fino"},
+    {"id": "e2", "tipo": "estatico", "pai": "v2", "x": 491, "y": 166, "w": 45, "h": 43, "rotulo": "n"},
+    {"id": "e3", "tipo": "estatico", "pai": "v2", "x": 491, "y": 315, "w": 45, "h": 43, "rotulo": "s"},
     {"id": "j1", "tipo": "juncao", "pai": "v2", "x": 649, "y": 258}
    ],
    "fluxos": [
-    {"id": "f1", "de": {"elemento": "d1", "lado": "topo"}, "para": {"elemento": "e2", "lado": "esquerda"}, "rotulo": "s", "seta": false},
-    {"id": "f2", "de": {"elemento": "d1", "lado": "baixo"}, "para": {"elemento": "e3", "lado": "esquerda"}, "rotulo": "n", "seta": false},
-    {"id": "f3", "de": {"elemento": "e3", "lado": "direita"}, "para": {"elemento": "j1", "lado": "baixo"}, "seta": false},
-    {"id": "f4", "de": {"elemento": "e2", "lado": "direita"}, "para": {"elemento": "j1", "lado": "topo"}, "seta": false},
+    {"id": "f1", "de": {"elemento": "d1", "lado": "topo"}, "para": {"elemento": "e2", "lado": "esquerda"}, "rotulo": "s"},
+    {"id": "f2", "de": {"elemento": "d1", "lado": "baixo"}, "para": {"elemento": "e3", "lado": "esquerda"}, "rotulo": "n"},
+    {"id": "f3", "de": {"elemento": "e3", "lado": "direita"}, "para": {"elemento": "j1", "lado": "baixo"}},
+    {"id": "f4", "de": {"elemento": "e2", "lado": "direita"}, "para": {"elemento": "j1", "lado": "topo"}},
     {"id": "f5", "de": {"elemento": "j1", "lado": "direita"}, "para": {"elemento": "e1", "lado": "esquerda"}}
    ]
   },
@@ -240,22 +240,22 @@
     {"id": "v2", "tipo": "virtual", "x": 187, "y": 20, "w": 734, "h": 460, "legenda": "Não-autoaceitadorRE?"},
     {"id": "v1", "tipo": "virtual", "pai": "v2", "x": 130, "y": 133, "w": 263, "h": 260},
     {"id": "d1", "tipo": "decisao", "pai": "v2", "x": 392, "y": 233, "w": 68, "h": 61, "rotulo": "?"},
-    {"id": "e1", "tipo": "estatico", "pai": "v2", "x": 476, "y": 166, "w": 45, "h": 43, "rotulo": "n", "traco": "fino"},
-    {"id": "e2", "tipo": "estatico", "pai": "v2", "x": 476, "y": 315, "w": 45, "h": 43, "rotulo": "s", "traco": "fino"},
+    {"id": "e1", "tipo": "estatico", "pai": "v2", "x": 476, "y": 166, "w": 45, "h": 43, "rotulo": "n"},
+    {"id": "e2", "tipo": "estatico", "pai": "v2", "x": 476, "y": 315, "w": 45, "h": 43, "rotulo": "s"},
     {"id": "j1", "tipo": "juncao", "pai": "v2", "x": 635, "y": 258},
     {"id": "j2", "tipo": "juncao", "pai": "v2", "x": 30, "y": 220},
     {"id": "e3", "tipo": "estatico", "x": 20, "y": 188, "w": 167, "h": 112, "rotulo": "Não-\nautoacei\ntadorRE"}
    ],
    "fluxos": [
-    {"id": "f1", "de": {"elemento": "d1", "lado": "topo"}, "para": {"elemento": "e1", "lado": "esquerda"}, "rotulo": "s", "seta": false},
-    {"id": "f2", "de": {"elemento": "d1", "lado": "baixo"}, "para": {"elemento": "e2", "lado": "esquerda"}, "rotulo": "n", "seta": false},
-    {"id": "f3", "de": {"elemento": "e2", "lado": "direita"}, "para": {"elemento": "j1", "lado": "baixo"}, "seta": false},
-    {"id": "f4", "de": {"elemento": "e1", "lado": "direita"}, "para": {"elemento": "j1", "lado": "topo"}, "seta": false},
+    {"id": "f1", "de": {"elemento": "d1", "lado": "topo"}, "para": {"elemento": "e1", "lado": "esquerda"}, "rotulo": "s"},
+    {"id": "f2", "de": {"elemento": "d1", "lado": "baixo"}, "para": {"elemento": "e2", "lado": "esquerda"}, "rotulo": "n"},
+    {"id": "f3", "de": {"elemento": "e2", "lado": "direita"}, "para": {"elemento": "j1", "lado": "baixo"}},
+    {"id": "f4", "de": {"elemento": "e1", "lado": "direita"}, "para": {"elemento": "j1", "lado": "topo"}},
     {"id": "f5", "de": {"elemento": "j1", "lado": "direita"}, "para": {"elemento": "v2", "lado": "direita"}},
-    {"id": "f6", "de": {"elemento": "j2", "lado": "baixo"}, "para": {"elemento": "v1", "lado": "esquerda"}, "registro": "estatico"},
+    {"id": "f6", "de": {"elemento": "j2", "lado": "baixo"}, "para": {"elemento": "v1", "lado": "esquerda"}},
     {"id": "f7", "de": {"elemento": "j2", "lado": "topo"}, "para": {"elemento": "v1", "lado": "topo"}},
     {"id": "f8", "de": {"elemento": "v2", "lado": "topo"}, "para": {"elemento": "e3", "lado": "topo"}},
-    {"id": "f9", "de": {"elemento": "e3", "lado": "direita"}, "para": {"elemento": "j2", "lado": "esquerda"}, "registro": "estatico"}
+    {"id": "f9", "de": {"elemento": "e3", "lado": "direita"}, "para": {"elemento": "j2", "lado": "esquerda"}}
    ]
   }
  ]

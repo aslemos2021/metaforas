@@ -53,3 +53,17 @@ todos os fluxos. Um valor encostado vale por uma flecha (lateral, vermelha;
 no topo, azul); fica para depois. Sair pelo topo é o código da máquina tomado
 como valor. `-1` e `*` são mecânicos, de cantos retos. Detalhes e as perguntas
 que daí saíram em `notacao.md`.
+
+**2026-10-12 · Cor do fluxo, saída e figuras com o que está fora** (André).
+A junção é transparente: o que chega a ela tem a cor do que sai dela, e preto
+se os ramos discordam. O fluxo sem destinatário (a saída da máquina) não
+precisa existir; se existir, quem desenha escolhe a cor. O objeto vermelho que
+recebe a saída de um componente preto é materializado por ele: flecha preta.
+Reticências e Atalho são *ad hoc*, do artigo; voltam quando se pensar no
+funcionamento dos diagramas. O plano da v0 foi aprovado (está no `CLAUDE.md`).
+
+**2026-10-12 · Formato na versão 2** (Claude, a partir das respostas). A cor
+do fluxo passa a ser calculada (`corDoFluxo`); saem do documento `traco`,
+`seta` e o `registro` dos fluxos com destinatário. A migração 1 → 2 faz isso.
+O desenho omite a seta que chega a uma junção, porque o ponto já marca a
+chegada.
