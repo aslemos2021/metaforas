@@ -54,6 +54,7 @@ este arquivo.
 ```
 index.html, estilo.css   a página
 src/modelo.js            tipos (JSDoc), regras, validação, migração; não desenha
+src/edicao.js            operações de edição (documento -> documento novo) e histórico
 src/notacao.js           cores, traços, fontes e medidas da notação, num lugar só
 src/geometria.js         portas e rotas ortogonais dos fluxos; funções puras
 src/desenho.js           diagrama -> <svg>; sem estado
@@ -92,9 +93,9 @@ nem Atalho); salvar o documento; exportar SVG. Plano aprovado pelo André em
 12/10/2026; cada passo termina publicado e com testes:
 
 0. ~~Respostas do André na notação: cor calculada, formato v2, inspetor.~~
-1. Núcleo de edição sem tela (`src/edicao.js`): criar, mover, redimensionar,
+1. ~~Núcleo de edição sem tela (`src/edicao.js`): criar, mover, redimensionar,
    aninhar, desaninhar, ligar, renomear, apagar; histórico para desfazer e
-   refazer. Funções puras, que devolvem documento novo e válido.
+   refazer. Funções puras, que devolvem documento novo e válido.~~
 2. Selecionar, mover (com os objetos dentro) e redimensionar com o mouse;
    apagar; desfazer e refazer.
 3. Paleta dos seis tipos; soltar dentro de um registro aninha, arrastar para
