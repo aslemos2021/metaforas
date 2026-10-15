@@ -10,8 +10,8 @@ editor e depois vai para direções que ainda não se sabem. Por isso o document
 guarda a estrutura da notação, e não só o desenho.
 
 O André é o autor da notação e quem decide o que ela é. Trabalha com o Claude
-em sessões do Claude Code na nuvem: cada tarefa é uma conversa nova, que
-começa por este arquivo.
+num Projeto do Claude Code: cada tarefa é uma conversa nova, que começa por
+este arquivo.
 
 ## Como trabalhar com o André
 
@@ -35,9 +35,10 @@ começa por este arquivo.
 1. Leia `docs/notacao.md` (a gramática confirmada, o que está fora, as perguntas
    em aberto) e `docs/formato.md` (o documento JSON).
 2. Veja as últimas entradas de `docs/decisoes.md`.
-3. O manuscrito de *Metáforas* e o *Ensaio.pptx* (os desenhos originais, feitos
-   no PowerPoint) não estão no repositório, que é público. Quando o assunto for
-   uma figura e o arquivo não estiver anexado à sessão, peça ao André.
+3. O manuscrito de *Metáforas* (`metaforas.pdf`), o *Ensaio.pptx* (os desenhos
+   originais, feitos no PowerPoint) e o *Metáforas.pptx* (versão inicial do
+   artigo) estão na Library do Projeto, não no repositório, que é público.
+   Quando o assunto for uma figura, olhe a figura lá.
 
 ## Princípios
 
