@@ -81,3 +81,7 @@ do Atalho subiu para a máquina que o continha. Os valores encostados (`x!`,
 ainda não estão liberados na conta. Por enquanto, cada tarefa é uma sessão
 comum na nuvem com este repositório; o modo de trabalhar com o André foi para
 o `CLAUDE.md`, que toda sessão lê.
+
+**2026-10-15 · Projeto** (André). Os Projetos do Claude Code foram liberados
+na conta. O trabalho volta para um Projeto com este repositório; o manuscrito e
+os dois PowerPoints ficam na Library dele.

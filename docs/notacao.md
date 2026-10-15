@@ -3,7 +3,7 @@
 A notação é a do manuscrito *Metáforas para explicar a computação como ciência
 empírica*, de André Souza Lemos (2023). Os desenhos originais foram feitos no
 PowerPoint (*Ensaio.pptx*). O manuscrito e o Ensaio não estão neste repositório;
-ficam com o André, fora do repositório.
+ficam na Library do Projeto.
 
 Este arquivo registra a gramática que o André confirmou em 11 de outubro de 2026,
 o que ficou de fora por enquanto e as perguntas que a leitura dos desenhos
